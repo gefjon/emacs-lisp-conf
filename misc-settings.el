@@ -6,6 +6,18 @@
 (setq-default indent-tabs-mode nil)
 (setf tab-stop-list (number-sequence 2 120 2))
 
+(global-unset-key (kbd "C-h"))
+(global-unset-key (kbd "C-M-h"))
+
+(use-package popup
+  :ensure t)
+(use-package clippy
+  :init (setq clippy-tip-show-function #'clippy-popup-tip-show)
+  :bind (("C-h" . clippy-describe-function)
+         ("C-M-h" . clippy-describe-variable))
+  :ensure t)
+  
+  
 (use-package column-marker
   :config (add-hook 'latex-mode-hook
                     (lambda (interactive) (column-marker-1 80)))
