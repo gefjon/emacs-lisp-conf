@@ -16,7 +16,13 @@
   :bind (("C-h" . clippy-describe-function)
          ("C-M-h" . clippy-describe-variable))
   :ensure t)
-  
+
+(use-package smex
+  :config (smex-initialize)
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
+         ("C-c C-c M-x" . execute-extended-command))
+  :ensure t)
   
 (use-package column-marker
   :config (add-hook 'latex-mode-hook
