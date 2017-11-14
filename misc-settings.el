@@ -17,6 +17,10 @@
          ("C-M-h" . clippy-describe-variable))
   :ensure t)
 
+(use-package highlight-symbol
+  :config (add-hook-to-all-major-modes #'highlight-symbol-mode)
+  :ensure t)
+
 (use-package smex
   :config (smex-initialize)
   :bind (("M-x" . smex)

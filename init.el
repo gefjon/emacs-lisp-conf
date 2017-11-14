@@ -7,6 +7,20 @@
 
 (require 'use-package)
 
+(defvar *hooks-for-global-modes* '(js2-mode-hook
+                                   slime-mode-hook
+                                   lisp-interaction-mode-hook
+                                   emacs-lisp-mode-hook
+                                   rust-mode-hook
+                                   c-mode-hook
+                                   json-mode-hook
+                                   pug-mode-hook
+                                   nginx-mode-hook))
+
+(defun add-hook-to-all-major-modes (hook)
+  (dolist (mode *hooks-for-global-modes*)
+    (add-hook mode hook)))
+
 (require 'pretty-settings)
 (require 'rust-settings)
 (require 'slime-config)
@@ -22,7 +36,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
+    (highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
  '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp)))))
 
 (custom-set-faces
