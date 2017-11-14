@@ -8,6 +8,7 @@
 (require 'use-package)
 
 (require 'pretty-settings)
+(require 'rust-settings)
 (require 'slime-config)
 (require 'misc-settings)
 (require 'js-settings)
