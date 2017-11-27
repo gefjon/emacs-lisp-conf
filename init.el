@@ -21,13 +21,14 @@
   (dolist (mode *hooks-for-global-modes*)
     (add-hook mode hook)))
 
+(when (eq system-type 'darwin)
+  (require 'mac-system-settings))
+
 (require 'pretty-settings)
 (require 'rust-settings)
 (require 'slime-config)
 (require 'misc-settings)
 (require 'js-settings)
-(when (eq system-type 'darwin)
-  (require 'mac-system-settings))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

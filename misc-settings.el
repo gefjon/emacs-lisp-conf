@@ -9,6 +9,11 @@
 (global-unset-key (kbd "C-h"))
 (global-unset-key (kbd "C-M-h"))
 
+(use-package magit
+  :ensure t)
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (use-package popup
   :ensure t)
 (use-package clippy
@@ -18,6 +23,9 @@
   :ensure t)
 
 (use-package highlight-symbol
+  :init (setf highlight-symbol-idle-delay 0)
+  (setf highlight-symbol-highlight-single-occurence nil)
+  
   :config (add-hook-to-all-major-modes #'highlight-symbol-mode)
   :ensure t)
 
@@ -29,8 +37,8 @@
   :ensure t)
   
 (use-package column-marker
-  :config (add-hook 'latex-mode-hook
-                    (lambda (interactive) (column-marker-1 80)))
+  :config (add-hook-to-all-major-modes
+                    (lambda () (interactive) (column-marker-1 80)))
   :ensure t)
 (use-package auto-complete
   :config (global-auto-complete-mode t)
