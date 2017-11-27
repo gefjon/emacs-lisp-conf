@@ -15,7 +15,10 @@
                                    c-mode-hook
                                    json-mode-hook
                                    pug-mode-hook
-                                   nginx-mode-hook))
+                                   nginx-mode-hook
+                                   latex-mode-hook
+                                   text-mode-hook
+                                   markdown-mode-hook))
 
 (defun add-hook-to-all-major-modes (hook)
   (dolist (mode *hooks-for-global-modes*)
