@@ -6,27 +6,12 @@
 (setq-default indent-tabs-mode nil)
 (setf tab-stop-list (number-sequence 2 120 2))
 
-(global-unset-key (kbd "C-h"))
-(global-unset-key (kbd "C-M-h"))
-
-(use-package magit
-  :ensure t)
-
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-
 (use-package popup
-  :ensure t)
-(use-package clippy
-  :init (setq clippy-tip-show-function #'clippy-popup-tip-show)
-  :bind (("C-h" . clippy-describe-function)
-         ("C-M-h" . clippy-describe-variable))
   :ensure t)
 
 (use-package highlight-symbol
   :init (setf highlight-symbol-idle-delay 0)
   (setf highlight-symbol-highlight-single-occurence nil)
-  
   :config (add-hook-to-all-major-modes #'highlight-symbol-mode)
   :ensure t)
 
