@@ -1,9 +1,8 @@
-(message "Found system-type %s, sourcing mac-system-settings" system-type)
-
 (use-package exec-path-from-shell
   :init (setf exec-path-from-shell-check-startup-files nil)
-  :config (progn (exec-path-from-shell-initialize)
-                 (exec-path-from-shell-copy-env "INFOPATH"))
+  :config
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "INFOPATH")
   :ensure t)
 
 ;; use cmd-mouse for mouse-2, because mac trackpads are bad

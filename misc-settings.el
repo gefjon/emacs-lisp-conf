@@ -1,3 +1,20 @@
+(defvar *hooks-for-global-modes* '(js2-mode-hook
+                                   slime-mode-hook
+                                   lisp-interaction-mode-hook
+                                   emacs-lisp-mode-hook
+                                   rust-mode-hook
+                                   c-mode-hook
+                                   json-mode-hook
+                                   pug-mode-hook
+                                   nginx-mode-hook
+                                   latex-mode-hook
+                                   text-mode-hook
+                                   markdown-mode-hook))
+
+(defun add-hook-to-all-major-modes (hook)
+  (dolist (mode *hooks-for-global-modes*)
+    (add-hook mode hook)))
+
 (use-package better-defaults
   :ensure t)
 

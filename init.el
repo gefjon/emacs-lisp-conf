@@ -3,26 +3,16 @@
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 (require 'use-package)
 
-(defvar *hooks-for-global-modes* '(js2-mode-hook
-                                   slime-mode-hook
-                                   lisp-interaction-mode-hook
-                                   emacs-lisp-mode-hook
-                                   rust-mode-hook
-                                   c-mode-hook
-                                   json-mode-hook
-                                   pug-mode-hook
-                                   nginx-mode-hook
-                                   latex-mode-hook
-                                   text-mode-hook
-                                   markdown-mode-hook))
+(use-package benchmark-init
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-(defun add-hook-to-all-major-modes (hook)
-  (dolist (mode *hooks-for-global-modes*)
-    (add-hook mode hook)))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+
+(byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
 
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
