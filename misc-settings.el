@@ -59,7 +59,7 @@
 (use-package nginx-mode
   :mode "\\.nginx\\'")
 
-(setf linum-format "%4d │")
+(setf linum-format " %4d │")
 (global-linum-mode t)
 
 (setf inhibit-startup-screen t)
