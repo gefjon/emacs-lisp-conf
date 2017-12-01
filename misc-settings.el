@@ -60,7 +60,7 @@
   :mode "\\.nginx\\'")
 
 (setf linum-format " %4d │")
-(global-linum-mode t)
+(add-hook-to-all-major-modes (lambda () (linum-mode t)))
 
 (setf inhibit-startup-screen t)
 (setf ring-bell-function 'ignore)
