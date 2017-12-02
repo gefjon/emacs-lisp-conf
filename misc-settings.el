@@ -41,7 +41,7 @@
   
 (use-package column-marker
   :config (add-hook-to-all-major-modes
-                    (lambda () (interactive) (column-marker-1 80)))
+                    (lambda () (interactive) (column-marker-1 81)))
   :ensure t)
 (use-package auto-complete
   :config (global-auto-complete-mode t)
@@ -65,5 +65,6 @@
 (setf inhibit-startup-screen t)
 (setf ring-bell-function 'ignore)
 (setf visible-bell t)
+(menu-bar-mode t)
 
 (provide 'misc-settings)

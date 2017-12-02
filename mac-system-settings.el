@@ -10,6 +10,4 @@
 
 (setq dired-use-ls-dired nil)
 
-(menu-bar-mode t)
-
 (provide 'mac-system-settings)
