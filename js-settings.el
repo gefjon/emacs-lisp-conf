@@ -15,5 +15,11 @@
 (use-package pug-mode
   :mode "\\.pug\\'"
   :ensure t)
+(use-package sass-mode
+  :ensure t
+  :mode "\\.sass\\'")
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'")
 
 (provide 'js-settings)

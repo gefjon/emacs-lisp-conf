@@ -1,5 +1,7 @@
 (defvar *hooks-for-global-modes* '(js2-mode-hook
+                                   sass-mode-hook
                                    slime-mode-hook
+                                   typescript-mode-hook
                                    lisp-interaction-mode-hook
                                    emacs-lisp-mode-hook
                                    rust-mode-hook
@@ -15,8 +17,19 @@
   (dolist (mode *hooks-for-global-modes*)
     (add-hook mode hook)))
 
+(defun my-home () (interactive)
+       "If at the begining of line go to begining of buffer.
+ If at the indention go to begining of line.
+ Go to indention otherwise."
+       (if (bolp) (beginning-of-buffer)
+         (skip-chars-backward " \t")
+         (unless (bolp) (back-to-indentation))))
+
+(global-set-key (kbd "C-a") #'my-home)
+
 (use-package better-defaults
-  :ensure t)
+  :ensure t
+  :config (ido-mode t))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
