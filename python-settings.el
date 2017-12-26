@@ -1,3 +1,4 @@
 (use-package elpy
-  :config (elpy-enable))
+  :config (elpy-enable)
+  (setq ac-modes (delq 'python-mode ac-modes)))
 (provide 'python-settings)

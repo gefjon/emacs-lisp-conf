@@ -17,11 +17,11 @@
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
 (require 'git-settings)
-(require 'python-settings)
 (require 'pretty-settings)
 (require 'rust-settings)
 (require 'slime-config)
 (require 'misc-settings)
+(require 'python-settings)
 (require 'js-settings)
 (require 'tex-settings)
 
