@@ -21,7 +21,7 @@
        "If at the begining of line go to begining of buffer.
  If at the indention go to begining of line.
  Go to indention otherwise."
-       (if (bolp) (beginning-of-buffer)
+       (if (bolp) (forward-line -1)
          (skip-chars-backward " \t")
          (unless (bolp) (back-to-indentation))))
 
