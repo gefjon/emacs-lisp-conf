@@ -17,7 +17,6 @@
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
 (require 'git-settings)
-(require 'pretty-settings)
 (require 'rust-settings)
 (require 'slime-config)
 (require 'misc-settings)
