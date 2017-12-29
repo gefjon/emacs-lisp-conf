@@ -27,6 +27,8 @@
 
 (global-set-key (kbd "C-a") #'my-home)
 
+(global-set-key (kbd "C-c x") (delete-frame))
+
 (use-package better-defaults
   :ensure t
   :config (ido-mode t))
@@ -71,7 +73,9 @@
   :mode "\\.glsl[fv]*\\'")
 (use-package nginx-mode
   :mode "\\.nginx\\'")
-
+(use-package yaml-mode
+  :mode "\\.yml\\'"
+  :ensure t)
 (setf linum-format " %4d │")
 (add-hook-to-all-major-modes (lambda () (linum-mode t)))
 
