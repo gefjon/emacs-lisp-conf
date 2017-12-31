@@ -7,7 +7,6 @@
 (setq slime-contribs '(slime-fancy slime-asdf inferior-slime))
 
 (use-package paredit
-  :ensure t
   :bind (("M-{" . paredit-wrap-curly)
          ("M-[" . paredit-wrap-square)))
 

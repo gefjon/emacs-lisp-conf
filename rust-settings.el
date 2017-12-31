@@ -1,9 +1,7 @@
 (use-package rust-mode
-  :mode "\\.rs\\'"
-  :ensure t)
+  :mode "\\.rs\\'")
 (use-package cargo)
 (use-package toml-mode
-  :mode "\\.toml\\'"
-  :ensure t)
+  :mode "\\.toml\\'")
 
 (provide 'rust-settings)
