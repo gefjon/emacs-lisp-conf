@@ -20,8 +20,11 @@
         auto-package-update-interval 4)
   (auto-package-update-maybe))
 
+(require 'utility-fns)
+
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
+(require 'window-settings)
 (require 'git-settings)
 (require 'rust-settings)
 (require 'slime-config)
@@ -38,7 +41,8 @@
  '(package-selected-packages
    (quote
     (sass-mode typescript-mode paredit helm-spotify-plus better-defaults magit smex highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
- '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp)))))
+ '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
+ '(tramp-syntax (quote default) nil (tramp)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

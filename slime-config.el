@@ -1,3 +1,12 @@
+(declare-function message-load-file "utility-fns" () nil)
+(declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
+
+(defvar slime-lisp-implementations)
+(defvar slime-default-lisp)
+(defvar slime-contribs)
+
+(message-load-file)
+
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setf slime-lisp-implementations
       '((sbcl ("sbcl"))

@@ -1,3 +1,8 @@
+(declare-function message-load-file "utility-fns" () nil)
+(declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
+
+(message-load-file)
+
 (use-package js2-mode
   :mode "\\.js\\'"
   :interpreter "node"

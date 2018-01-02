@@ -1,21 +1,7 @@
-(defvar *hooks-for-global-modes* '(js2-mode-hook
-                                   sass-mode-hook
-                                   slime-mode-hook
-                                   typescript-mode-hook
-                                   lisp-interaction-mode-hook
-                                   emacs-lisp-mode-hook
-                                   rust-mode-hook
-                                   c-mode-hook
-                                   json-mode-hook
-                                   pug-mode-hook
-                                   nginx-mode-hook
-                                   latex-mode-hook
-                                   text-mode-hook
-                                   markdown-mode-hook))
+(declare-function message-load-file "utility-fns" () nil)
+(declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
 
-(defun add-hook-to-all-major-modes (hook)
-  (dolist (mode *hooks-for-global-modes*)
-    (add-hook mode hook)))
+(message-load-file)
 
 (defun my-home () (interactive)
        "If at the begining of line go to begining of buffer.
@@ -39,6 +25,7 @@
 
 (use-package popup)
 
+(defvar highlight-symbol-highlight-single-occurence)
 (use-package highlight-symbol
   :init (setf highlight-symbol-idle-delay 0)
   (setf highlight-symbol-highlight-single-occurence nil)
@@ -66,6 +53,7 @@
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
+(defvar linum-format)
 (setf linum-format " %4d │")
 (add-hook-to-all-major-modes (lambda () (linum-mode t)))
 
