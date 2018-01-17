@@ -7,7 +7,7 @@
                 (if (eq system-type 'darwin)
                     'toggle-frame-fullscreen
                   'toggle-frame-maximized))
-(add-to-list 'initial-frame-alist (cons
+(add-to-list 'default-frame-alist (cons
                                    'fullscreen
                                    (if (eq system-type 'darwin)
                                        'fullboth
