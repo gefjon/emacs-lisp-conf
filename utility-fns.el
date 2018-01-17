@@ -19,8 +19,20 @@
                                    text-mode-hook
                                    markdown-mode-hook))
 
-(defun add-hook-to-all-major-modes (hook)
-  (dolist (mode *hooks-for-global-modes*)
+(defvar *hooks-for-lisp-modes* '(lisp-mode-hook
+                                 slime-repl-mode-hook
+                                 slime-mode-hook
+                                 emacs-lisp-mode-hook
+                                 lisp-interaction-mode-hook))
+
+(defun add-hook-to-list-of-major-modes (hook modes)
+  (dolist (mode modes)
     (add-hook mode hook)))
+
+(defun add-hook-to-all-major-modes (hook)
+  (add-hook-to-list-of-major-modes hook *hooks-for-global-modes*))
+
+(defun add-hook-to-lisp-modes (hook)
+  (add-hook-to-list-of-major-modes hook *hooks-for-lisp-modes*))
 
 (provide 'utility-fns)
