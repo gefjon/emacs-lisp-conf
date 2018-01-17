@@ -41,7 +41,8 @@
   :config (add-hook-to-all-major-modes
                     (lambda () (interactive) (column-marker-1 81))))
 (use-package auto-complete
-  :config (global-auto-complete-mode t))
+  :config (global-auto-complete-mode 1))
+
 (use-package tramp)
 (use-package toml-mode)
 (use-package flycheck)
