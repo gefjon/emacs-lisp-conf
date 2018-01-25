@@ -41,8 +41,17 @@
   :config (add-hook-to-all-major-modes
                     (lambda () (interactive) (column-marker-1 81))))
 (use-package auto-complete
-  :config (global-auto-complete-mode 1))
+  :config
+  (global-auto-complete-mode))
 
+(global-set-key (kbd "M-i") #'auto-complete)
+
+(global-set-key (kbd "C-c s e") (lambda () (interactive) (insert ?ä)))
+(global-set-key (kbd "C-c s E") (lambda () (interactive) (insert ?Ä)))
+(global-set-key (kbd "C-c s o") (lambda () (interactive) (insert ?ö)))
+(global-set-key (kbd "C-c s O") (lambda () (interactive) (insert ?Ö)))
+(global-set-key (kbd "C-c s a") (lambda () (interactive) (insert ?å)))
+(global-set-key (kbd "C-c s A") (lambda () (interactive) (insert ?Å)))
 (use-package tramp)
 (use-package toml-mode)
 (use-package flycheck)
