@@ -72,4 +72,6 @@
 (setf visible-bell t)
 (menu-bar-mode t)
 
+(add-hook 'lisp-interaction-mode-hook (lambda () (local-set-key (kbd "C-c e") #'eval-print-last-sexp)))
+
 (provide 'misc-settings)
