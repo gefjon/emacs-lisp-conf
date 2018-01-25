@@ -5,6 +5,9 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'")
+
+(setf ac-modes (cons 'rust-mode ac-modes))
+
 (use-package cargo)
 (use-package toml-mode
   :mode "\\.toml\\'")
