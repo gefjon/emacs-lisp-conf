@@ -3,6 +3,16 @@
 
 (message-load-file)
 
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+(add-hook 'focus-out-hook #'garbage-collect)
+
+(add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
+
 (defun my-home () (interactive)
        "If at the begining of line go to begining of buffer.
  If at the indention go to begining of line.
@@ -15,8 +25,7 @@
 
 (global-set-key (kbd "C-c x") #'delete-frame)
 
-(use-package better-defaults
-  :config (ido-mode t))
+(use-package better-defaults)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -30,12 +39,6 @@
   :init (setf highlight-symbol-idle-delay 0)
   (setf highlight-symbol-highlight-single-occurence nil)
   :config (add-hook-to-all-major-modes #'highlight-symbol-mode))
-
-(use-package smex
-  :config (smex-initialize)
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command)))
   
 (use-package column-marker
   :config (add-hook-to-all-major-modes

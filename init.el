@@ -27,6 +27,7 @@
 (require 'window-settings)
 (require 'git-settings)
 (require 'slime-config)
+(require 'ido-settings)
 (require 'misc-settings)
 (require 'rust-settings)
 (require 'python-settings)
@@ -40,7 +41,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (slime sass-mode typescript-mode paredit helm-spotify-plus better-defaults magit smex highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
+    (ido-vertical-mode slime sass-mode typescript-mode paredit helm-spotify-plus better-defaults magit smex highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
  '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
  '(tramp-syntax (quote default) nil (tramp)))
 
