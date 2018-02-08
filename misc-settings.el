@@ -14,7 +14,7 @@
 (add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
 
 (defun my-home () (interactive)
-       "If at the begining of line go to begining of buffer.
+       "If at the begining of line go to previous line.
  If at the indention go to begining of line.
  Go to indention otherwise."
        (if (bolp) (forward-line -1)
@@ -39,10 +39,7 @@
   :init (setf highlight-symbol-idle-delay 0)
   (setf highlight-symbol-highlight-single-occurence nil)
   :config (add-hook-to-all-major-modes #'highlight-symbol-mode))
-  
-(use-package column-marker
-  :config (add-hook-to-all-major-modes
-                    (lambda () (interactive) (column-marker-1 81))))
+
 (use-package auto-complete
   :config
   (global-auto-complete-mode))
@@ -67,7 +64,7 @@
   :mode "\\.yml\\'")
 
 (defvar linum-format)
-(setf linum-format " %4d │")
+(setf linum-format " 3d │")
 (add-hook-to-all-major-modes (lambda () (linum-mode t)))
 
 (setf inhibit-startup-screen t)
