@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (declare-function message-load-file "utility-fns" () nil)
 (declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
 (declare-function add-hook-to-lisp-modes "utility-fns" (hook) nil)

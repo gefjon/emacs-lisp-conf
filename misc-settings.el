@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (declare-function message-load-file "utility-fns" () nil)
 (declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
 
@@ -64,7 +66,7 @@
   :mode "\\.yml\\'")
 
 (defvar linum-format)
-(setf linum-format " 3d │")
+(setf linum-format " %3d │")
 (add-hook-to-all-major-modes (lambda () (linum-mode t)))
 
 (setf inhibit-startup-screen t)

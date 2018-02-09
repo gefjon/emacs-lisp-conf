@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (package-initialize)
 (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")

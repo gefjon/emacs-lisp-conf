@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defun message-load-file ()
   (message "loading %s"
            (or load-file-name buffer-file-name)))
