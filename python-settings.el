@@ -8,5 +8,5 @@
 (use-package elpy
   :config (elpy-enable)
   (setq ac-modes (delq 'python-mode ac-modes)
-        python-shell-interpreter "python3")
-  (provide 'python-settings))
+        python-shell-interpreter "python3"))
+(provide 'python-settings)

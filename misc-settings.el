@@ -11,9 +11,15 @@
 (set-keyboard-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 
+(use-package hydra
+  :demand t)
+
 (add-hook 'focus-out-hook #'garbage-collect)
 
 (add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
+
+(global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
+(global-set-key (kbd "M-k") 'kill-sexp)
 
 (defun my-home () (interactive)
        "If at the begining of line go to previous line.
@@ -48,12 +54,16 @@
 
 (global-set-key (kbd "M-i") #'auto-complete)
 
-(global-set-key (kbd "C-c s e") (lambda () (interactive) (insert ?ä)))
-(global-set-key (kbd "C-c s E") (lambda () (interactive) (insert ?Ä)))
-(global-set-key (kbd "C-c s o") (lambda () (interactive) (insert ?ö)))
-(global-set-key (kbd "C-c s O") (lambda () (interactive) (insert ?Ö)))
-(global-set-key (kbd "C-c s a") (lambda () (interactive) (insert ?å)))
-(global-set-key (kbd "C-c s A") (lambda () (interactive) (insert ?Å)))
+(defhydra hydra-swedish-vowels (:color blue)
+  "Swedish vowels"
+  ("e" (lambda () (interactive) (insert ?ä)) "ä")
+  ("E" (lambda () (interactive) (insert ?Ä)) "Ä")
+  ("o" (lambda () (interactive) (insert ?ö)) "ö")
+  ("O" (lambda () (interactive) (insert ?Ö)) "Ö")
+  ("a" (lambda () (interactive) (insert ?å)) "å")
+  ("A" (lambda () (interactive) (insert ?Å)) "Å"))
+(global-set-key (kbd "C-c s") 'hydra-swedish-vowels/body)
+
 (use-package tramp)
 (use-package toml-mode)
 (use-package flycheck)
@@ -73,6 +83,25 @@
 (setf ring-bell-function 'ignore)
 (setf visible-bell t)
 (menu-bar-mode t)
+
+(add-hook 'text-mode-hook
+          (lambda ()
+            (turn-on-auto-fill)
+            (set-fill-column 80)
+            (flyspell-mode t)))
+
+(use-package ag
+  :if (executable-find "ag")
+  :demand t
+  :init
+  (defhydra hydra-ag (:color red)
+    "ag"
+    ("<return>" ag "ag")
+    ("f" ag-files "files")
+    ("p" ag-project "project")
+    ("r" ag-regexp "regexp"))
+  (global-set-key (kbd "C-c C-f") 'hydra-ag/body))
+
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (local-set-key (kbd "C-c e") #'eval-print-last-sexp)))
 

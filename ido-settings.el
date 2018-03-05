@@ -10,7 +10,11 @@
   (ido-everywhere +1))
 
 (use-package ido-completing-read+
-  :config (ido-ubiquitous-mode +1))
+  :config
+  (ido-ubiquitous-mode +1)
+  (setq magit-completing-read-function 'magit-ido-completing-read)
+  (add-to-list 'ido-cr+-function-blacklist 'describe-function)
+  (add-to-list 'ido-cr+-function-blacklist 'describe-variable))
 
 (use-package ido-vertical-mode
   :config
@@ -24,6 +28,6 @@
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command)))
 
-(setq magit-completing-read-function 'magit-ido-completing-read)
+
 
 (provide 'ido-settings)
