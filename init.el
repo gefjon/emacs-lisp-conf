@@ -31,6 +31,7 @@
 (require 'slime-config)
 (require 'ido-settings)
 (require 'misc-settings)
+(require 'ag-settings)
 (require 'rust-settings)
 (require 'python-settings)
 (require 'js-settings)

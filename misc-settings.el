@@ -90,19 +90,6 @@
             (set-fill-column 80)
             (flyspell-mode t)))
 
-(use-package ag
-  :if (executable-find "ag")
-  :demand t
-  :init
-  (defhydra hydra-ag (:color red)
-    "ag"
-    ("<return>" ag "ag")
-    ("f" ag-files "files")
-    ("p" ag-project "project")
-    ("r" ag-regexp "regexp"))
-  (global-set-key (kbd "C-c C-f") 'hydra-ag/body))
-
-
 (add-hook 'lisp-interaction-mode-hook (lambda () (local-set-key (kbd "C-c e") #'eval-print-last-sexp)))
 
 (provide 'misc-settings)
