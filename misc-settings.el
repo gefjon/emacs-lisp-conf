@@ -17,6 +17,7 @@
 (add-hook 'focus-out-hook #'garbage-collect)
 
 (add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist `("\\.pbe\\'" . lisp-mode))
 
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
 (global-set-key (kbd "M-k") 'kill-sexp)
@@ -75,9 +76,8 @@
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
-(defvar linum-format)
-(setf linum-format " %3d │")
-(add-hook-to-all-major-modes (lambda () (linum-mode t)))
+(eval-and-compile (require 'display-line-numbers))
+(add-hook-to-all-major-modes #'display-line-numbers--turn-on)
 
 (setf inhibit-startup-screen t)
 (setf ring-bell-function 'ignore)

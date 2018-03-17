@@ -24,5 +24,7 @@
   :mode "\\.sass\\'")
 (use-package typescript-mode
   :mode "\\.ts\\'")
+(use-package web-mode
+  :mode "\\.vue\\'")
 
 (provide 'js-settings)

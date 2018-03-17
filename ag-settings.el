@@ -85,6 +85,6 @@
         ("p" add-project "project")
         ("r" add-regexp "regexp")
         ("d" add-dired "dired"))))
-  (global-set-key (kbd "C-c C-f") 'hydra-ag/body))
+  (global-set-key (kbd "C-c f") 'hydra-ag/body))
 
 (provide 'ag-settings)
