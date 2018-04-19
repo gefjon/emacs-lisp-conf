@@ -89,7 +89,8 @@ Go to indentation otherwise"
   :mode "\\.yml\\'")
 
 (eval-and-compile (require 'display-line-numbers))
-(add-hook-to-all-major-modes #'display-line-numbers--turn-on)
+(setf display-line-numbers-grow-only t)
+(add-hook-to-all-major-modes #'display-line-numbers-mode)
 
 (setf inhibit-startup-screen t)
 (setf ring-bell-function 'ignore)
