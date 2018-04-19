@@ -22,7 +22,7 @@
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
 (global-set-key (kbd "M-k") 'kill-sexp)
 
-(defun my-home () (interactive)
+(defun my-move-beginning-of-line () (interactive)
        "If at the begining of line go to previous line.
  If at the indention go to begining of line.
  Go to indention otherwise."
@@ -30,13 +30,25 @@
          (skip-chars-backward " \t")
          (unless (bolp) (back-to-indentation))))
 
-(global-set-key (kbd "C-a") #'my-home)
+(defun my-move-end-of-line () (interactive)
+       "If at end of line go to next line.
+If at indentation go to end of line.
+Go to indentation otherwise"
+       (if (eolp) (forward-line 1)
+         (let ((old-point (point)))
+           (back-to-indentation)
+           (when (= old-point (point))
+             (move-end-of-line nil)))))
+
+(global-set-key (kbd "C-a") #'my-move-beginning-of-line)
+(global-set-key (kbd "C-e") #'my-move-end-of-line)
 
 (global-set-key (kbd "C-c x") #'delete-frame)
 
 (use-package better-defaults)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(delete-selection-mode)
 
 (setq-default indent-tabs-mode nil)
 (setf tab-stop-list (number-sequence 2 120 2))
