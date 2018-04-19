@@ -1,14 +1,17 @@
 ;;; -*- lexical-binding: t -*-
 
 (declare-function message-load-file "utility-fns" () nil)
-(declare-function add-hook-to-all-major-modes "utility-fns" (hook) nil)
 
 (message-load-file)
 
 (use-package rust-mode
   :mode "\\.rs\\'")
 
-(setf ac-modes (cons 'rust-mode ac-modes))
+(use-package racer
+  :if (executable-find "racer")
+  :config
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode))
 
 (use-package cargo)
 (use-package toml-mode
