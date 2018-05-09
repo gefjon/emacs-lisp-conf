@@ -13,4 +13,6 @@
                                    (if (eq system-type 'darwin)
                                        'fullboth
                                      'maximized)))
+(add-to-list 'custom-theme-load-path "/Users/rowan/.emacs.d/theme/")
+(load-theme 'pastelmac t)
 (provide 'window-settings)

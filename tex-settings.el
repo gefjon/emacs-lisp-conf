@@ -4,7 +4,9 @@
 
 (message-load-file)
 
-(use-package auctex
-  :mode "\\.\\(la\\)?tex\\'")
+(use-package tex-site
+  :ensure auctex
+  :demand
+  :mode ("\\.\\(la\\)?tex\\'" . TeX-latex-mode))
 
 (provide 'tex-settings)
