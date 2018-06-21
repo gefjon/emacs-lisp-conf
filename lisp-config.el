@@ -13,10 +13,11 @@
 (use-package slime
   :init
   (setf slime-lisp-implementations
-        '((sbcl ("sbcl"))
+        '((roswell ("ros" "-Q" "run"))
+          (sbcl ("sbcl"))
           (ccl ("ccl"))
           (ccl32 ("ccl32"))))
-  (setf slime-default-lisp 'sbcl)
+  (setf slime-default-lisp 'roswell)
   (setf slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company)))
 
 (use-package paredit

@@ -7,10 +7,6 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-(use-package benchmark-init
-  :ensure t
-  :config
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
@@ -33,8 +29,10 @@
 (require 'misc-settings)
 (require 'ag-settings)
 (require 'rust-settings)
+(require 'c++-settings)
 (require 'python-settings)
 (require 'js-settings)
+(require 'lua-settings)
 (require 'markup-settings)
 (require 'keybinding-settings)
 
@@ -61,6 +59,7 @@
  '(fixed-pitch ((t (:family "Input Mono"))))
  '(fixed-pitch-serif ((t (:family "Input Mono"))))
  '(highlight-symbol-face ((t (:inherit highlight))))
+ '(line-number ((t (:inherit (fixed-pitch shadow default)))))
  '(line-number-current-line ((t (:inherit line-number :background "grey50" :foreground "lavender"))))
  '(linum ((t (:inherit (shadow default) :family "Input Mono"))))
  '(show-paren-match ((t (:inherit highlight))))

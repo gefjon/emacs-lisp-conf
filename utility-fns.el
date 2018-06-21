@@ -12,7 +12,8 @@
 (defvar *hooks-for-data-modes* '(nginx-mode-hook
                                  json-mode-hook
                                  yaml-mode-hook
-                                 toml-mode-hook))
+                                 toml-mode-hook
+                                 makefile-mode-hook))
 
 (defvar *hooks-for-webdev-modes* '(json-mode-hook
                                    js2-mode-hook
@@ -36,7 +37,8 @@
 (defvar *hooks-for-c-like-modes* '(js2-mode-hook
                                    typescript-mode
                                    rust-mode-hook
-                                   c-mode-hook))
+                                   c-mode-hook
+                                   c++-mode-hook))
 
 (defvar *hooks-for-lisp-modes* '(lisp-mode-hook
                                  slime-repl-mode-hook
@@ -44,6 +46,9 @@
                                  emacs-lisp-mode-hook
                                  inferior-emacs-lisp-mode-hook
                                  lisp-interaction-mode-hook))
+
+(defvar *hooks-for-other-language-modes* '(lua-mode-hook
+                                           python-mode-hook))
 
 (defun union-many (&rest sets)
   (let ((union nil))
@@ -62,7 +67,8 @@
                                                *hooks-for-interactive-modes*
                                                *hooks-for-markup-modes*
                                                *hooks-for-c-like-modes*
-                                               *hooks-for-lisp-modes*)))
+                                               *hooks-for-lisp-modes*
+                                               *hooks-for-other-language-modes*)))
 
 (defun add-hook-to-lisp-modes (hook)
   (add-hook-to-list-of-major-modes hook *hooks-for-lisp-modes*))

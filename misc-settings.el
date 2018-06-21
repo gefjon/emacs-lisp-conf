@@ -25,12 +25,6 @@
 
 (use-package popup)
 
-(defvar highlight-symbol-highlight-single-occurence)
-(use-package highlight-symbol
-  :init (setf highlight-symbol-idle-delay 0)
-  (setf highlight-symbol-highlight-single-occurence nil)
-  :config (add-hook-to-all-major-modes #'highlight-symbol-mode))
-
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
@@ -48,15 +42,19 @@
   :mode "\\.yml\\'")
 
 (eval-and-compile (require 'display-line-numbers))
-(setf display-line-numbers-grow-only t)
-(setf display-line-numbers-width-start 4)
 (add-hook-to-all-major-modes #'display-line-numbers-mode)
+(defun configure-display-line-numbers-mode ()
+  (setf display-line-numbers-grow-only t
+        display-line-numbers-width-start 4
+        display-line-numbers-width 4))
+(add-hook 'display-line-numbers-mode-hook
+          #'configure-display-line-numbers-mode)
 
 (setf inhibit-startup-screen t)
 (setf ring-bell-function 'ignore)
 (setf visible-bell t)
 (menu-bar-mode t)
 
-(add-hook 'lisp-interaction-mode-hook (lambda () (local-set-key (kbd "C-c e") #'eval-print-last-sexp)))
+(define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
 
 (provide 'misc-settings)

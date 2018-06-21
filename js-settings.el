@@ -16,7 +16,9 @@
   (setf js2-mode-show-strict-warnings nil)
   (setf js2-basic-offset 2))
 (use-package json-mode
-  :mode "\\.json\\'")
+  :mode "\\.json\\'"
+  :config
+  (setf js-indent-level 2))
 (use-package pug-mode
   :mode "\\.pug\\'")
 (use-package sass-mode
