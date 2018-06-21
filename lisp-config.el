@@ -20,10 +20,4 @@
   (setf slime-default-lisp 'roswell)
   (setf slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company)))
 
-(use-package paredit
-  :demand
-  :config (add-hook-to-lisp-modes #'enable-paredit-mode)
-  :bind (("M-{" . paredit-wrap-curly)
-         ("M-[" . paredit-wrap-square)))
-
 (provide 'lisp-config)

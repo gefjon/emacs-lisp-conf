@@ -46,7 +46,7 @@
     ("147f19ccebab5eb81ce9af9d40446000a3c5d0aab33313550d05d0e5f58d77cb" "62a6731c3400093b092b3837cff1cb7d727a7f53059133f42fcc57846cfa0350" default)))
  '(package-selected-packages
    (quote
-    (counsel-projectile projectile counsel lua-mode auctex slime-company web-mode hydra ag ido-vertical-mode slime sass-mode typescript-mode paredit helm-spotify-plus better-defaults magit smex highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
+    (smartparens counsel-projectile projectile counsel lua-mode auctex slime-company web-mode hydra ag ido-vertical-mode slime sass-mode typescript-mode paredit helm-spotify-plus better-defaults magit smex highlight-symbol use-package column-marker auto-complete racer rust-playground glsl-mode pretty-symbols nginx-mode json-mode pug-mode go-complete go-mode toml-mode flymd markdown-mode markdown-mode+ exec-path-from-shell cargo elpy flycheck flycheck-rust js2-mode rust-mode)))
  '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
  '(tramp-syntax (quote default) nil (tramp)))
 

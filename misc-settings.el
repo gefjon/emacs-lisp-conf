@@ -25,6 +25,9 @@
 
 (use-package popup)
 
+(use-package smartparens
+  :config (require 'smartparens-config))
+
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
