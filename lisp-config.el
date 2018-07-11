@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(eval-when-compile (require 'utility-fns))
+(eval-and-compile (require 'utility-fns))
 
 (defvar slime-lisp-implementations)
 (defvar slime-default-lisp)
@@ -13,7 +13,7 @@
 (use-package slime
   :init
   (setf slime-lisp-implementations
-        '((roswell ("ros" "-Q" "run"))
+        '((roswell ("ros" "-Q" "-l" "~/.rosrc" "run"))
           (sbcl ("sbcl"))
           (ccl ("ccl"))
           (ccl32 ("ccl32"))))

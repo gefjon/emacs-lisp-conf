@@ -1,2 +1,3 @@
 pretty-mode.el
 *.elc
+*.bak

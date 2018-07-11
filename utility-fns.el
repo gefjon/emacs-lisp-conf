@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(eval-when-compile
+(eval-and-compile
   (require 'cl-lib))
 
 (defun message-load-file ()

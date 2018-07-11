@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(declare-function message-load-file "utility-fns" () nil)
+(eval-and-compile (require 'utility-fns))
 
 (message-load-file)
 
@@ -16,6 +16,7 @@
 (use-package cargo
   :config
   (add-hook 'rust-mode-hook #'cargo-minor-mode))
+
 (use-package toml-mode
   :mode "\\.toml\\'")
 

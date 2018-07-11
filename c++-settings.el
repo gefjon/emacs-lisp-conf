@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(eval-when-compile (require 'utility-fns))
+(eval-and-compile (require 'utility-fns))
 
 (message-load-file)
 

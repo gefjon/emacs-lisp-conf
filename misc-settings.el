@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(eval-when-compile (require 'utility-fns))
+(eval-and-compile (require 'utility-fns))
 
 (message-load-file)
 
@@ -24,9 +24,6 @@
 (setf tab-stop-list (number-sequence 2 120 2))
 
 (use-package popup)
-
-(use-package smartparens
-  :config (require 'smartparens-config))
 
 (use-package company
   :config

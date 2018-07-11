@@ -27,6 +27,7 @@
 (require 'lisp-config)
 (require 'completion-settings)
 (require 'misc-settings)
+(require 'smartparens-settings)
 (require 'ag-settings)
 (require 'rust-settings)
 (require 'c++-settings)
@@ -55,7 +56,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :inverse-video nil :weight light :height 120 :width normal :foundry "nil" :family "Input Sans"))))
+ '(default ((t (:inherit nil :stipple nil :background "#EAF0F0" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 120 :width normal :foundry "nil" :family "Input Mono"))))
  '(fixed-pitch ((t (:family "Input Mono"))))
  '(fixed-pitch-serif ((t (:family "Input Mono"))))
  '(highlight-symbol-face ((t (:inherit highlight))))
