@@ -7,15 +7,9 @@
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
 (global-set-key (kbd "M-k") 'kill-sexp)
 (global-set-key (kbd "C-c x") #'delete-frame)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (use-package hydra)
-
-(defun at-indentation-p ()
-  "`t` if point is at the current lines' indentation level, `nil` otherwise."
-  (save-excursion
-    (let ((old-point (point)))
-      (back-to-indentation)
-      (= old-point (point)))))
 
 (defun at-or-after-indentation-p ()
   (save-excursion

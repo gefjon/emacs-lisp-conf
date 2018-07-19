@@ -1,9 +1,18 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'package)
 (package-initialize)
 (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(setf user-full-name "Arthur Goldman"
+      user-mail-address "arthur@goldman-tribe.org")
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
@@ -19,6 +28,8 @@
   (auto-package-update-maybe))
 
 (require 'utility-fns)
+
+(require 'emacs-server-settings)
 
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))

@@ -4,6 +4,11 @@
 
 (message-load-file)
 
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
+
 (use-package ivy
   :config
   (ivy-mode 1)

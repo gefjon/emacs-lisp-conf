@@ -19,6 +19,8 @@
   :config
   (require 'smartparens-config)
   (add-hook-to-all-major-modes #'smartparens-mode)
+  (add-hook-to-lisp-modes #'smartparens-strict-mode)
+  (add-hook-to-all-major-modes #'show-smartparens-mode)
   :bind (("C-)" . #'sp-forward-slurp-sexp)
          ("C-}" . #'sp-forward-barf-sexp)
          ("C-(" . #'sp-backward-slurp-sexp)
