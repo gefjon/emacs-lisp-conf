@@ -4,10 +4,12 @@
 
 (message-load-file)
 
-(add-hook-to-markup-modes (lambda ()
-                            (turn-on-auto-fill)
-                            (set-fill-column 80)
-                            (flyspell-mode t)))
+(defun markup-editing-settings ()
+  (turn-on-auto-fill)
+  (set-fill-column 80)
+  (flyspell-mode))
+
+(add-hook-to-markup-modes #'markup-editing-settings)
 
 (require 'org-settings)
 (require 'tex-settings)
