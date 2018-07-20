@@ -4,6 +4,30 @@
 
 (message-load-file)
 
+(defvar *delimiters* '((?{ . ?})
+                       (?( . ?))
+                       (?[ . ?])
+                       (?< . ?>)))
+
+(defun pair-of-delimiters-p (first second)
+  (eq (cdr (assq first *delimiters*)) second))
+
+(defun point-between-delimiters-p ()
+  (pair-of-delimiters-p (char-before) (char-after)))
+
+(defun newline-at-block () (interactive)
+  (newline-and-indent)
+  (split-line)
+  (indent-for-tab-command))
+
+(defun newline-with-block-support ()
+  (interactive)
+  (if (point-between-delimiters-p)
+      (newline-at-block)
+    (newline-and-indent)))
+
+(global-set-key (kbd "C-m") #'newline-with-block-support)
+
 (defhydra hydra-smartparens-strict-mode (:color blue)
   "smartparens strict mode"
   ("e" turn-on-smartparens-strict-mode "enable")
