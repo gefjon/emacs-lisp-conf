@@ -4,9 +4,7 @@
 
 (message-load-file)
 
-(use-package lua-mode
-  :mode "\\.lua\\'"
-  :config
-  (setf lua-indent-level 2))
+(use-package julia-mode
+  :mode "\\.jl\\'")
 
-(provide 'lua-settings)
+(provide 'julia-settings)

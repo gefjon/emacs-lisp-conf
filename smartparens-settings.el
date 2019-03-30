@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
@@ -42,14 +42,17 @@
 (use-package smartparens
   :config
   (require 'smartparens-config)
-  (add-hook-to-all-major-modes #'smartparens-mode)
-  (add-hook-to-lisp-modes #'smartparens-strict-mode)
-  (add-hook-to-all-major-modes #'show-smartparens-mode)
+  (add-hook-to-all-modes #'smartparens-mode)
+  (add-hook-to-prog-modes #'smartparens-strict-mode)
+  (add-hook-to-all-modes #'show-smartparens-mode)
   :bind (("C-)" . #'sp-forward-slurp-sexp)
          ("C-}" . #'sp-forward-barf-sexp)
          ("C-(" . #'sp-backward-slurp-sexp)
          ("C-{" . #'sp-backward-barf-sexp)
          ("C-c [" . #'hydra-smartparens/body))
   :defer nil)
+
+(use-package rainbow-delimiters
+  :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (provide 'smartparens-settings)

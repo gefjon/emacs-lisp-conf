@@ -1,12 +1,12 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
 (message-load-file)
 
 (use-package magit
-  :config
-  (global-set-key (kbd "C-x g") 'magit-status)
-  (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup))
+  :demand
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-dispatch-popup)))
 
 (provide 'git-settings)

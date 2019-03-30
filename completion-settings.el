@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
@@ -7,7 +7,8 @@
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
-  (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
+  :bind (("M-i" . company-complete)
+         ("TAB" . indent-for-tab-command)))
 
 (use-package ivy
   :config

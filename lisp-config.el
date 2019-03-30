@@ -1,23 +1,50 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
-(defvar slime-lisp-implementations)
-(defvar slime-default-lisp)
-(defvar slime-contribs)
-
 (message-load-file)
 
-(use-package slime-company)
+(require 'scheme-settings)
+
+(use-package slime-company
+  :after company)
+
+(defun max-string (strings)
+  (seq-reduce #'(lambda (max-so-far elt)
+                  (if (string> elt max-so-far)
+                      elt
+                    max-so-far))
+              strings
+              ""))
+
+(defun configure-slime ()
+  (setf slime-lisp-implementations
+        '((sbcl ("sbcl"))
+          (ccl ("ccl"))
+          (ccl32 ("ccl32")))
+        slime-default-lisp 'sbcl
+        slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company)))
+
+(eval-and-compile 
+  (when-let ((slime-paths (file-expand-wildcards
+                           "~/quicklisp/dists/quicklisp/software/slime-v*/")))
+    (let ((slime-path (max-string slime-paths)))
+      (add-to-list 'load-path slime-path)))
+  (when-let ((slime-annot-paths (directory-files
+                                 "~/quicklisp/dists/quicklisp/software"
+                                 t ; full-name
+                                 (rx bol ; match-regexp
+                                     "cl-annot-"
+                                     (zero-or-more digit)
+                                     "-git"
+                                     eol))))
+    (let* ((slime-annot-path (max-string slime-annot-paths))
+           (the-actual-folder (concat (file-name-as-directory slime-annot-path)
+                                      "misc/")))
+      (add-to-list 'load-path the-actual-folder))))
 
 (use-package slime
-  :init
-  (setf slime-lisp-implementations
-        '((roswell ("ros" "-Q" "-l" "~/.rosrc" "run"))
-          (sbcl ("sbcl"))
-          (ccl ("ccl"))
-          (ccl32 ("ccl32"))))
-  (setf slime-default-lisp 'roswell)
-  (setf slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company)))
+  :config (require 'slime-annot)
+  :init (configure-slime))
 
 (provide 'lisp-config)

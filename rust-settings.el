@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 

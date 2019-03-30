@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
@@ -6,7 +6,7 @@
 
 (use-package ag
   :if (executable-find "ag")
-  :demand t
+  :demand
   :config
   (let ((extension-list '()))
     (cl-labels ((clean-and-call (to-call)

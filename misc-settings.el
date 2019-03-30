@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
 (eval-and-compile (require 'utility-fns))
 
@@ -20,19 +20,31 @@
       visible-bell t
       ring-bell-function 'ignore
       inhibit-startup-screen t
-      save-place-file (concat user-emacs-directory "places"))
+      save-place-file (concat user-emacs-directory "places")
+      compilation-scroll-output 'first-error
+      reb-re-syntax 'rx)
 
 (add-hook 'focus-out-hook #'garbage-collect)
 
 (add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
 (add-to-list 'auto-mode-alist `("\\.pbe\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.mva\\'" . prog-mode)) ;; Minerva does not yet have an emacs major mode
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(add-hook-to-all-major-modes #'delete-selection-mode)
+(add-hook-to-all-modes #'delete-selection-mode)
+
+(use-package dockerfile-mode
+  :mode "Dockerfile[^[:space:]]*")
+
+(column-number-mode 1)
+
+;; (use-package llvm-mode
+;;   :load-path "")
 
 (setq-default indent-tabs-mode nil)
 
-(use-package popup)
+(use-package popup
+  :demand t)
 
 (use-package tramp)
 (use-package toml-mode)
@@ -49,7 +61,7 @@
 (setf uniquify-buffer-name-style 'forward)
 
 (eval-and-compile (require 'display-line-numbers))
-(add-hook-to-all-major-modes #'display-line-numbers-mode)
+(add-hook-to-all-modes #'display-line-numbers-mode)
 (defun configure-display-line-numbers-mode ()
   (setf display-line-numbers-grow-only t
         display-line-numbers-width-start 4
