@@ -16,7 +16,13 @@
   (require 'use-package))
 
 (setf custom-file (expand-file-name "custom.el" user-emacs-directory))
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))
 (load custom-file)
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+
+(byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
 
 (setf user-full-name "Arthur Goldman"
       user-mail-address "arthur@goldman-tribe.org")
