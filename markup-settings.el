@@ -16,7 +16,4 @@
   :mode "\\.fountain\\'"
   :hook (fountain-mode . markup-editing-settings))
 
-(require 'org-settings)
-(require 'tex-settings)
-
 (provide 'markup-settings)

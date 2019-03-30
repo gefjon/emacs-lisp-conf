@@ -4,14 +4,11 @@
 
 (message-load-file)
 
-(require 'git-settings)
-
 (use-package projectile
   :config (projectile-mode))
 
 (use-package counsel-projectile
-  :if (and (require 'projectile nil :noerror)
-           (require 'counsel nil :noerror))
+  :after (counsel projectile)
   :config (counsel-projectile-mode))
 
 (provide 'project-settings)
