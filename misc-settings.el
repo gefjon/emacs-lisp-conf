@@ -24,6 +24,11 @@
       compilation-scroll-output 'first-error
       reb-re-syntax 'rx)
 
+(use-package undo-tree
+  :bind (("C-/" . undo-tree-undo)
+         ("C-?" . undo-tree-redo)
+         ("C-x u" . undo-tree-visualize)))
+
 (add-hook 'focus-out-hook #'garbage-collect)
 
 (add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))

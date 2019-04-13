@@ -37,9 +37,9 @@
 
 (require 'emacs-server-settings)
 
-; (when (eq system-type 'darwin)
-;   (require 'mac-system-settings))
-; (require 'window-settings)
+(when (eq system-type 'darwin)
+  (require 'mac-system-settings))
+(require 'window-settings)
 (require 'git-settings)
 (require 'project-settings)
 (require 'lisp-config)
@@ -55,11 +55,11 @@
 ; (require 'forth-settings)
 ; (require 'js-settings)
 ; (require 'lua-settings)
-; (require 'markup-settings)
+(require 'markup-settings)
 (require 'org-settings)
 (require 'tex-settings)
 (require 'keybinding-settings)
-; (require 'ag-settings)
+(require 'ag-settings)
 (require 'completion-settings)
 
 (provide 'init)

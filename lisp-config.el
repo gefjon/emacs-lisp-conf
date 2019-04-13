@@ -23,7 +23,8 @@
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
         slime-default-lisp 'sbcl
-        slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company)))
+        slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company))
+  (add-hook 'slime-repl-mode-hook #'smartparens-mode))
 
 (eval-and-compile 
   (when-let ((slime-paths (file-expand-wildcards
