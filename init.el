@@ -53,7 +53,7 @@
 ; (require 'ocaml-settings)
 ; (require 'julia-settings)
 ; (require 'forth-settings)
-; (require 'js-settings)
+(require 'js-settings)
 ; (require 'lua-settings)
 (require 'markup-settings)
 (require 'org-settings)

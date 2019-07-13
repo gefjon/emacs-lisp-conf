@@ -22,7 +22,8 @@
       inhibit-startup-screen t
       save-place-file (concat user-emacs-directory "places")
       compilation-scroll-output 'first-error
-      reb-re-syntax 'rx)
+      reb-re-syntax 'rx
+      read-quoted-char-radix 16)
 
 (use-package undo-tree
   :bind (("C-/" . undo-tree-undo)
@@ -74,7 +75,7 @@
 (add-hook 'display-line-numbers-mode-hook
           #'configure-display-line-numbers-mode)
 
-(menu-bar-mode t)
+(menu-bar-mode nil)
 (save-place-mode 1)
 
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)

@@ -16,4 +16,8 @@
   :mode "\\.fountain\\'"
   :hook (fountain-mode . markup-editing-settings))
 
+(use-package markdown-mode
+  :mode "\\.md\\'"
+  :hook (markdown-mode . markup-editing-settings))
+
 (provide 'markup-settings)

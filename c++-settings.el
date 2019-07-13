@@ -6,4 +6,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 
+(use-package arduino-mode
+  :mode (rx "."
+            (or "ino" "pde")
+            eol))
+
 (provide 'c++-settings)
