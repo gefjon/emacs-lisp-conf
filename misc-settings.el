@@ -10,7 +10,7 @@
 (set-keyboard-coding-system 'utf-8)
 
 (setf backup-directory-alist (list (cons "." (concat user-emacs-directory
-                                               "backups"))))
+                                                     "backups"))))
 (setf require-final-newline t
       apropos-do-all t
       load-prefer-newer t
@@ -66,16 +66,17 @@
 (require 'uniquify)
 (setf uniquify-buffer-name-style 'forward)
 
-(eval-and-compile (require 'display-line-numbers))
-(add-hook-to-all-modes #'display-line-numbers-mode)
-(defun configure-display-line-numbers-mode ()
-  (setf display-line-numbers-grow-only t
-        display-line-numbers-width-start 4
-        display-line-numbers-width 4))
-(add-hook 'display-line-numbers-mode-hook
-          #'configure-display-line-numbers-mode)
+(when (>= emacs-major-version 26)
+  (eval-and-compile (require 'display-line-numbers))
+  (add-hook-to-all-modes #'display-line-numbers-mode)
+  (defun configure-display-line-numbers-mode ()
+    (setf display-line-numbers-grow-only t
+          display-line-numbers-width-start 4
+          display-line-numbers-width 4))
+  (add-hook 'display-line-numbers-mode-hook
+            #'configure-display-line-numbers-mode))
 
-(menu-bar-mode nil)
+(menu-bar-mode 0)
 (save-place-mode 1)
 
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)

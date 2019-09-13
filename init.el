@@ -3,7 +3,7 @@
 (eval-and-compile
   (require 'package)
   (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
-			   ("marmalade" . "https://marmalade-repo.org/packages/")
+                           ;; ("marmalade" . "https://marmalade-repo.org/packages/")
 			   ("melpa" . "https://melpa.org/packages/")))
   (package-initialize)
   
@@ -20,12 +20,12 @@
   (write-region "" nil custom-file))
 (load custom-file)
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(add-to-list 'load-path (expand-file-name "~/emacs-lisp-conf"))
 
 (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
 
-(setf user-full-name "Arthur Goldman"
-      user-mail-address "arthur@goldman-tribe.org")
+(setf user-full-name "Phoebe Goldman"
+      user-mail-address "a@goldman-tribe.org")
 
 (use-package auto-package-update
   :config

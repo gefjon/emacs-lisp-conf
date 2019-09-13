@@ -28,6 +28,8 @@
 
 (global-set-key (kbd "C-m") #'newline-with-block-support)
 
+(use-package hydra)
+
 (defhydra hydra-smartparens-strict-mode (:color blue)
   "smartparens strict mode"
   ("e" turn-on-smartparens-strict-mode "enable")
