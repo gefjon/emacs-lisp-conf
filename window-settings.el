@@ -13,4 +13,8 @@
                                    (if (eq system-type 'darwin)
                                        'fullboth
                                      'maximized)))
+
+(use-package pastelmac-theme
+  :config (load-theme 'pastelmac t))
+
 (provide 'window-settings)
