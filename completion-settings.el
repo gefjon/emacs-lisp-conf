@@ -6,7 +6,7 @@
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
+  (global-company-mode)
   :bind (("M-i" . company-complete)
          ("TAB" . indent-for-tab-command)))
 

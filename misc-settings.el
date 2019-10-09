@@ -32,10 +32,6 @@
 
 (add-hook 'focus-out-hook #'garbage-collect)
 
-(add-to-list 'auto-mode-alist `("\\.rlsp\\'" . lisp-mode))
-(add-to-list 'auto-mode-alist `("\\.pbe\\'" . lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.mva\\'" . prog-mode)) ;; Minerva does not yet have an emacs major mode
-
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-hook-to-all-modes #'delete-selection-mode)
 
@@ -44,16 +40,11 @@
 
 (column-number-mode 1)
 
-;; (use-package llvm-mode
-;;   :load-path "")
-
 (setq-default indent-tabs-mode nil)
 
-(use-package popup
-  :demand t)
-
 (use-package tramp)
-(use-package toml-mode)
+(use-package toml-mode
+  :mode "\\.toml\\'")
 (use-package flycheck)
 (use-package flyspell)
 (use-package glsl-mode
@@ -78,6 +69,10 @@
 (menu-bar-mode nil)
 (save-place-mode 1)
 
+(setf tramp-default-method "ssh")
+
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
+
+(put 'downcase-region 'disabled nil)
 
 (provide 'misc-settings)
