@@ -12,8 +12,8 @@
   (unless (package-installed-p 'use-package)
     (package-install 'use-package))
 
-  (setf use-package-always-ensure t)
-  (require 'use-package))
+  (require 'use-package)
+  (setf use-package-always-ensure t))
 
 (setf custom-file (expand-file-name "custom.el" user-emacs-directory))
 (unless (file-exists-p custom-file)

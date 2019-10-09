@@ -4,8 +4,6 @@
 
 (message-load-file)
 
-(require 'scheme-settings)
-
 (use-package slime-company
   :after company)
 
@@ -16,15 +14,6 @@
                     max-so-far))
               strings
               ""))
-
-(defun configure-slime ()
-  (setf slime-lisp-implementations
-        '((sbcl ("sbcl"))
-          (ccl ("ccl"))
-          (ccl32 ("ccl32")))
-        slime-default-lisp 'sbcl
-        slime-contribs '(slime-fancy slime-asdf inferior-slime slime-company))
-  (add-hook 'slime-repl-mode-hook #'smartparens-mode))
 
 (eval-and-compile 
   (when-let ((slime-paths (file-expand-wildcards
@@ -46,6 +35,24 @@
 
 (use-package slime
   :config (require 'slime-annot)
-  :init (configure-slime))
+  :init
+  (setf slime-lisp-implementations
+        '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-swank"))
+          (sbcl ("sbcl"))
+          (ccl ("ccl"))
+          (ccl32 ("ccl32")))
+        slime-default-lisp 'sbcl-fast
+        slime-contribs '(slime-fancy
+                         slime-asdf
+                         inferior-slime
+                         slime-company
+                         slime-indentation
+                         slime-mdot-fu
+                         slime-editing-commands
+                         slime-fancy-inspector))
+  (add-hook 'slime-repl-mode-hook #'smartparens-mode))
+
+(require 'scheme-settings)
+(require 'racket-settings)
 
 (provide 'lisp-config)

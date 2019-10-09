@@ -4,10 +4,10 @@
 
 (message-load-file)
 
-(eval-and-compile 
-  (if (featurep 'server)
-      (require 'server)))
 (when (and (featurep 'server) (not (server-running-p)))
     (server-start))
+
+(use-package edit-server)
+(edit-server-start)
 
 (provide 'emacs-server-settings)
