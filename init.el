@@ -22,7 +22,7 @@
 
 (add-to-list 'load-path (expand-file-name "~/emacs-lisp-conf"))
 
-(byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
+(byte-recompile-directory (expand-file-name "~/emacs-lisp-conf") 0)
 
 (setf user-full-name "Phoebe Goldman"
       user-mail-address "a@goldman-tribe.org")

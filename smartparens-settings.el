@@ -5,8 +5,8 @@
 (message-load-file)
 
 (defvar *delimiters* '((?{ . ?})
-                       (?( . ?))
-                       (?[ . ?])
+                       (?\( . ?\))
+                       (?\[ . ?\])
                        (?< . ?>)))
 
 (defun pair-of-delimiters-p (first second)
