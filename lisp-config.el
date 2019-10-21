@@ -19,22 +19,9 @@
   (when-let ((slime-paths (file-expand-wildcards
                            "~/quicklisp/dists/quicklisp/software/slime-v*/")))
     (let ((slime-path (max-string slime-paths)))
-      (add-to-list 'load-path slime-path)))
-  (when-let ((slime-annot-paths (directory-files
-                                 "~/quicklisp/dists/quicklisp/software"
-                                 t ; full-name
-                                 (rx bol ; match-regexp
-                                     "cl-annot-"
-                                     (zero-or-more digit)
-                                     "-git"
-                                     eol))))
-    (let* ((slime-annot-path (max-string slime-annot-paths))
-           (the-actual-folder (concat (file-name-as-directory slime-annot-path)
-                                      "misc/")))
-      (add-to-list 'load-path the-actual-folder))))
+      (add-to-list 'load-path slime-path))))
 
 (use-package slime
-  :config (require 'slime-annot)
   :init
   (setf slime-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-swank"))
