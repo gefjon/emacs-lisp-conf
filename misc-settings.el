@@ -68,6 +68,7 @@
             #'configure-display-line-numbers-mode))
 
 (menu-bar-mode 0)
+(tool-bar-mode -1)
 (save-place-mode 1)
 
 (setf tramp-default-method "ssh")
