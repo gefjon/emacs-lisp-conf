@@ -24,7 +24,7 @@
 ;; for building my themes, and i have emacs load them manually as
 ;; follows
 
-(defvar *cl-base16-emacs-template* "/home/phoebe/quicklisp/local-projects/cl-base16/sources/templates/emacs/")
+(defvar *cl-base16-emacs-template* "~/quicklisp/local-projects/cl-base16/sources/templates/emacs/")
 (defvar *cl-base16-emacs-themes* (concat *cl-base16-emacs-template* "build/"))
 
 (when (and (file-directory-p *cl-base16-emacs-template*)

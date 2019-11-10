@@ -5,8 +5,7 @@
   (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
                            ;; ("marmalade" . "https://marmalade-repo.org/packages/")
 			   ("melpa" . "https://melpa.org/packages/")))
-  (package-initialize)
-  
+
   (package-refresh-contents)
 
   (unless (package-installed-p 'use-package)
@@ -61,5 +60,6 @@
 (require 'keybinding-settings)
 (require 'ag-settings)
 (require 'completion-settings)
+(require 'mail-settings)
 
 (provide 'init)

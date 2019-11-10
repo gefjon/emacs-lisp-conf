@@ -24,7 +24,7 @@
 (use-package slime
   :init
   (setf slime-lisp-implementations
-        '((sbcl-fast ("sbcl" "--core" "/home/phoebe/sbcl.core-with-swank"))
+        '((sbcl-fast ("sbcl" "--core" "~/sbcl.core-with-swank"))
           (sbcl ("sbcl"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
