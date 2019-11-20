@@ -69,7 +69,7 @@
 
 (menu-bar-mode 0)
 (tool-bar-mode -1)
-(toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 (save-place-mode 1)
 
 (setf tramp-default-method "ssh")
@@ -77,5 +77,8 @@
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
 
 (put 'downcase-region 'disabled nil)
+
+(use-package pdf-tools
+  :config (pdf-tools-install))
 
 (provide 'misc-settings)
