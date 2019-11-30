@@ -26,9 +26,10 @@
   (setf slime-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "~/sbcl.core-with-swank"))
           (sbcl ("sbcl"))
+          (sbcl64 ("sbcl64"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
-        slime-default-lisp 'sbcl-fast
+        slime-default-lisp 'sbcl
         slime-contribs '(slime-fancy
                          slime-asdf
                          inferior-slime
