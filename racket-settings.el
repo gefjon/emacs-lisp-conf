@@ -2,6 +2,7 @@
 
 (eval-and-compile (require 'utility-fns))
 
-(use-package racket-mode)
+(use-package racket-mode
+  :mode "^\\.rkt$")
 
 (provide 'racket-settings)

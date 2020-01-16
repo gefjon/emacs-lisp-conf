@@ -26,6 +26,7 @@
   (setf slime-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "~/sbcl.core-with-swank"))
           (sbcl ("sbcl"))
+          (sbcl32 ("sbcl32"))
           (sbcl64 ("sbcl64"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
@@ -39,8 +40,5 @@
                          slime-editing-commands
                          slime-fancy-inspector))
   (add-hook 'slime-repl-mode-hook #'smartparens-mode))
-
-(require 'scheme-settings)
-(require 'racket-settings)
 
 (provide 'lisp-config)

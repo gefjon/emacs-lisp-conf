@@ -23,9 +23,12 @@
       save-place-file (concat user-emacs-directory "places")
       compilation-scroll-output 'first-error
       reb-re-syntax 'rx
-      read-quoted-char-radix 16)
+      read-quoted-char-radix 16
+      shell-command-dont-erase-buffer t)
 
 (use-package undo-tree
+  :demandq
+  :config (global-undo-tree-mode)
   :bind (("C-/" . undo-tree-undo)
          ("C-?" . undo-tree-redo)
          ("C-x u" . undo-tree-visualize)))

@@ -34,16 +34,17 @@
 
 (require 'utility-fns)
 
-(require 'emacs-server-settings)
-
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
+
+(require 'misc-settings)
 (require 'window-settings)
 (require 'git-settings)
 (require 'project-settings)
 (require 'lisp-config)
+(require 'racket-settings)
+(require 'scheme-settings)
 ; (require 'prolog-settings)
-(require 'misc-settings)
 (require 'smartparens-settings)
 (require 'rust-settings)
 ; (require 'c++-settings)
@@ -60,6 +61,7 @@
 (require 'keybinding-settings)
 (require 'ag-settings)
 (require 'completion-settings)
-(require 'mail-settings)
+; (require 'mail-settings)
 
 (provide 'init)
+(put 'upcase-region 'disabled nil)
