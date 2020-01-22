@@ -35,8 +35,6 @@
 
 (require 'utility-fns)
 
-(require 'emacs-server-settings)
-
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
 (require 'window-settings)

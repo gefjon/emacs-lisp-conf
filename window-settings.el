@@ -14,7 +14,7 @@
                                        'fullboth
                                      'maximized)))
 
-(use-package pastelmac-theme
-  :config (load-theme 'pastelmac t))
+(use-package dracula-theme
+  :config (load-theme 'dracula t))
 
 (provide 'window-settings)

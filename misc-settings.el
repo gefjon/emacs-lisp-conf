@@ -68,6 +68,7 @@
             #'configure-display-line-numbers-mode))
 
 (menu-bar-mode 0)
+(tool-bar-mode 0)
 (save-place-mode 1)
 
 (setf tramp-default-method "ssh")
@@ -75,5 +76,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
 
 (put 'downcase-region 'disabled nil)
+
+(use-package applescript-mode)
 
 (provide 'misc-settings)
