@@ -4,8 +4,8 @@
 
 (message-load-file)
 
-(use-package ob-prolog
-  :demand)
+(use-package poly-org
+  :after org)
 
 (use-package org
   :config
