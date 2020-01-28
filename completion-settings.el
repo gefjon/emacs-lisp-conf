@@ -5,23 +5,22 @@
 (message-load-file)
 
 (use-package company
-  :config
-  (global-company-mode)
+  :config (global-company-mode)
   :bind (("M-i" . company-complete)
-         ("TAB" . indent-for-tab-command)))
+         ("TAB" . indent-for-tab-command))
+  :demand)
 
 (use-package ivy
-  :config
-  (ivy-mode 1)
-  (setq magit-completing-read-function 'ivy-completing-read)
-  (setq ivy-use-virtual-buffers t)
+  :config (ivy-mode 1)
+  (setf magit-completing-read-function #'ivy-completing-read
+        ivy-use-virtual-buffers t)
   :bind (("C-s" . swiper)
-         ("M-x" . counsel-M-x)
-         ("C-c C-f" . counsel-find-file)
-         ("C-h f" . counsel-describe-function)
-         ("C-h v" . counsel-describe-variable)
-         ("C-c k" . counsel-ag)
          ("C-c C-r" . ivy-resume))
+  :demand)
+
+(use-package counsel
+  :config (counsel-mode 1)
+  :bind (("C-c k" . counsel-ag))
   :demand)
 
 (provide 'completion-settings)
