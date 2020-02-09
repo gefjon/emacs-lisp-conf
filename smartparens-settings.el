@@ -43,7 +43,6 @@
 
 (use-package smartparens
   :config
-  (require 'smartparens-config)
   (add-hook-to-all-modes #'smartparens-mode)
   (add-hook-to-prog-modes #'smartparens-strict-mode)
   (add-hook-to-all-modes #'show-smartparens-mode)
