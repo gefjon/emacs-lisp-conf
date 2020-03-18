@@ -27,7 +27,6 @@
       shell-command-dont-erase-buffer t)
 
 (use-package undo-tree
-  :demand
   :config (global-undo-tree-mode)
   :bind (("C-/" . undo-tree-undo)
          ("C-?" . undo-tree-redo)
