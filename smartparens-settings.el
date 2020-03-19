@@ -46,6 +46,9 @@
   (add-hook-to-all-modes #'smartparens-mode)
   (add-hook-to-prog-modes #'smartparens-strict-mode)
   (add-hook-to-all-modes #'show-smartparens-mode)
+  (sp-with-modes sp-lisp-modes
+    (sp-local-pair "'" nil :actions nil)
+    (sp-local-pair "`" nil :actions nil))
   :bind (("C-)" . #'sp-forward-slurp-sexp)
          ("C-}" . #'sp-forward-barf-sexp)
          ("C-(" . #'sp-backward-slurp-sexp)
