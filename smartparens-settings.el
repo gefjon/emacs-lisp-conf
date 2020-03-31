@@ -41,24 +41,26 @@
   "smartparens"
   ("s" hydra-smartparens-strict-mode/body "strict mode"))
 
+(defvar *lisp-modes* '(common-lisp-mode
+                       lisp-mode
+                       lisp-interaction-mode
+                       inferior-lisp-mode
+                       emacs-lisp-mode
+                       eshell-mode
+                       inferior-emacs-lisp-mode
+                       racket-mode
+                       racket-repl-mode
+                       scheme-mode
+                       scheme-interaction-mode
+                       slime-repl-mode
+                       stumpwm-mode))
+
 (use-package smartparens
   :config
   (add-hook-to-all-modes #'smartparens-mode)
   (add-hook-to-prog-modes #'smartparens-strict-mode)
   (add-hook-to-all-modes #'show-smartparens-mode)
-  (sp-with-modes '(common-lisp-mode
-                   lisp-mode
-                   lisp-interaction-mode
-                   inferior-lisp-mode
-                   emacs-lisp-mode
-                   eshell-mode
-                   inferior-emacs-lisp-mode
-                   racket-mode
-                   racket-repl-mode
-                   scheme-mode
-                   scheme-interaction-mode
-                   slime-repl-mode
-                   stumpwm-mode)
+  (sp-with-modes *lisp-modes*
     (sp-local-pair "'" nil :actions nil)
     (sp-local-pair "`" nil :actions nil))
   :bind (("C-)" . #'sp-forward-slurp-sexp)
