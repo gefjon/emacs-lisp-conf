@@ -39,6 +39,7 @@
   (setf slime-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-swank"))
           (sbcl ("sbcl"))
+          (allegro ("alisp"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
         slime-default-lisp 'sbcl-fast
