@@ -26,6 +26,8 @@
       read-quoted-char-radix 16)
 
 (use-package undo-tree
+  :demand
+  :config (global-undo-tree-mode)
   :bind (("C-/" . undo-tree-undo)
          ("C-?" . undo-tree-redo)
          ("C-x u" . undo-tree-visualize)))
@@ -77,6 +79,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
 
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 (use-package applescript-mode)
 
