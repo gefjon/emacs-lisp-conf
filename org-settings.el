@@ -4,9 +4,6 @@
 
 (message-load-file)
 
-(use-package poly-org
-  :after org)
-
 (use-package org
   :config
   (setf org-src-fontify-natively t
