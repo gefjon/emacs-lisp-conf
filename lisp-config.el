@@ -4,38 +4,16 @@
 
 (message-load-file)
 
-(defun max-string (strings)
-  (seq-reduce #'(lambda (max-so-far elt)
-                  (if (string> elt max-so-far)
-                      elt
-                    max-so-far))
-              strings
-              ""))
-
-(eval-and-compile 
-  (when-let* ((slime-paths (file-expand-wildcards
-                            "~/quicklisp/dists/quicklisp/software/slime-v*")))
-    (let ((slime-path (max-string slime-paths)))
-      (add-to-list 'load-path slime-path))))
-
-(use-package slime
+(use-package sly
   :init
-  (setf slime-lisp-implementations
-        '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-swank"))
+  (setf sly-lisp-implementations
+        '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-slynk"))
           (sbcl ("sbcl"))
           (allegro ("alisp"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
-        slime-default-lisp 'sbcl-fast
-        slime-contribs '(slime-fancy
-                         slime-asdf
-                         inferior-slime
-                         slime-company
-                         slime-indentation
-                         slime-mdot-fu
-                         slime-editing-commands
-                         slime-fancy-inspector))
-  (add-hook 'slime-repl-mode-hook #'smartparens-mode))
+        sly-default-lisp 'sbcl-fast)
+  (add-hook 'sly-mrepl-mode-hook #'smartparens-mode))
 
 (require 'scheme-settings)
 (require 'racket-settings)
