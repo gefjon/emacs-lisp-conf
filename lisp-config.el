@@ -4,41 +4,19 @@
 
 (message-load-file)
 
-(use-package slime-company
-  :after company)
-
-(defun max-string (strings)
-  (seq-reduce #'(lambda (max-so-far elt)
-                  (if (string> elt max-so-far)
-                      elt
-                    max-so-far))
-              strings
-              ""))
-
-(eval-and-compile 
-  (when-let ((slime-paths (file-expand-wildcards
-                           "~/quicklisp/dists/quicklisp/software/slime-v*/")))
-    (let ((slime-path (max-string slime-paths)))
-      (add-to-list 'load-path slime-path))))
-
-(use-package slime
+(use-package sly
   :init
-  (setf slime-lisp-implementations
-        '((sbcl-fast ("sbcl" "--core" "~/sbcl.core-with-swank"))
+  (setf sly-lisp-implementations
+        '((sbcl-fast ("sbcl" "--core" "/home/phoebe/sbcl.core-with-slynk"))
           (sbcl ("sbcl"))
-          (sbcl32 ("sbcl32"))
-          (sbcl64 ("sbcl64"))
+          (allegro ("alisp"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
-        slime-default-lisp 'sbcl
-        slime-contribs '(slime-fancy
-                         slime-asdf
-                         inferior-slime
-                         slime-company
-                         slime-indentation
-                         slime-mdot-fu
-                         slime-editing-commands
-                         slime-fancy-inspector))
-  (add-hook 'slime-repl-mode-hook #'smartparens-mode))
+        sly-default-lisp 'sbcl)
+  (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
+  (cl-flet ((start-sly ()
+                       (unless (sly-connected-p)
+                         (save-excursion (sly)))))
+    (add-hook 'lisp-mode-hook #'start-sly)))
 
 (provide 'lisp-config)

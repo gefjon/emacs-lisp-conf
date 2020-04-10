@@ -79,6 +79,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
 
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 (use-package pdf-tools
   :config (pdf-tools-install))
