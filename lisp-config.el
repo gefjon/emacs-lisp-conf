@@ -13,7 +13,11 @@
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
         sly-default-lisp 'sbcl-fast)
-  (add-hook 'sly-mrepl-mode-hook #'smartparens-mode))
+  (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
+  (cl-flet ((start-sly ()
+                       (unless (sly-connected-p)
+                         (save-excursion (sly)))))
+    (add-hook 'lisp-mode-hook #'start-sly)))
 
 (require 'scheme-settings)
 (require 'racket-settings)
