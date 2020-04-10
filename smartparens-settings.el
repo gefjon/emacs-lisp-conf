@@ -52,7 +52,7 @@
                        racket-repl-mode
                        scheme-mode
                        scheme-interaction-mode
-                       slime-repl-mode
+                       sly-mrepl-mode
                        stumpwm-mode))
 
 (use-package smartparens
@@ -67,8 +67,7 @@
          ("C-}" . #'sp-forward-barf-sexp)
          ("C-(" . #'sp-backward-slurp-sexp)
          ("C-{" . #'sp-backward-barf-sexp)
-         ("C-c [" . #'hydra-smartparens/body))
-  :defer nil)
+         ("C-c [" . #'hydra-smartparens/body)))
 
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
