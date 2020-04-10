@@ -4,9 +4,6 @@
 
 (message-load-file)
 
-(use-package ob-prolog
-  :demand)
-
 (use-package org
   :config
   (setf org-src-fontify-natively t

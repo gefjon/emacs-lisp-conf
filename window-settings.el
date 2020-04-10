@@ -15,6 +15,6 @@
                                      'maximized)))
 
 (use-package dracula-theme
-  :config (load-theme 'dracula))
+  :config (load-theme 'dracula t))
 
 (provide 'window-settings)
