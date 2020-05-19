@@ -19,7 +19,4 @@
                          (save-excursion (sly)))))
     (add-hook 'lisp-mode-hook #'start-sly)))
 
-(require 'scheme-settings)
-(require 'racket-settings)
-
 (provide 'lisp-config)

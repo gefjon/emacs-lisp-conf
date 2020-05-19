@@ -40,6 +40,7 @@
 (require 'window-settings)
 (require 'git-settings)
 (require 'project-settings)
+(require 'python-settings)
 (require 'lisp-config)
 (require 'misc-settings)
 (require 'smartparens-settings)
