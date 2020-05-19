@@ -8,17 +8,12 @@
   :config
   (setf org-src-fontify-natively t
         org-log-done 'time
-        org-agenda-files (list (expand-file-name "~/org-college")
-                               (expand-file-name "~/writing/general-notes.org"))
+        org-agenda-files (list (expand-file-name "~/sift"))
         org-agenda-start-day "-1d"
         org-agenda-span 16)
   (org-babel-do-load-languages 'org-babel-load-languages
                                '((emacs-lisp . t)
-                                 (C . t)
-                                 (js . t)
-                                 (shell . t)
-                                 (haskell . t)
-                                 (prolog . t)))
+                                 (lisp . t)))
   :bind (("C-c a" . org-agenda)
          ("C-c l" . org-store-link)))
 (provide 'org-settings)
