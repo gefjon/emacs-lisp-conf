@@ -45,14 +45,8 @@
 (setq-default indent-tabs-mode nil)
 
 (use-package tramp)
-(use-package toml-mode
-  :mode "\\.toml\\'")
 (use-package flycheck)
 (use-package flyspell)
-(use-package glsl-mode
-  :mode "\\.glsl[fv]*\\'")
-(use-package nginx-mode
-  :mode "\\.nginx\\'")
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
@@ -80,7 +74,5 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-
-(use-package applescript-mode)
 
 (provide 'misc-settings)
