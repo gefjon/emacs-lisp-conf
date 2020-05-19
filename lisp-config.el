@@ -12,7 +12,7 @@
           (allegro ("alisp"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
-        sly-default-lisp 'sbcl-fast)
+        sly-default-lisp 'ccl)
   (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
   (cl-flet ((start-sly ()
                        (unless (sly-connected-p)
