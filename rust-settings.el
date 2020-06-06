@@ -4,6 +4,9 @@
 
 (message-load-file)
 
+(use-package toml-mode
+  :mode "\\.toml\\'")
+
 (use-package rust-mode
   :mode "\\.rs\\'")
 

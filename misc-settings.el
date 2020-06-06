@@ -44,17 +44,11 @@
 
 (setq-default indent-tabs-mode nil)
 
-(use-package tramp)
-(use-package toml-mode
-  :mode "\\.toml\\'")
+(use-package tramp
+  :config (setf tramp-default-method "ssh"))
+
 (use-package flycheck)
 (use-package flyspell)
-(use-package glsl-mode
-  :mode "\\.glsl[fv]*\\'")
-(use-package nginx-mode
-  :mode "\\.nginx\\'")
-(use-package yaml-mode
-  :mode "\\.yml\\'")
 
 (require 'uniquify)
 (setf uniquify-buffer-name-style 'forward)
@@ -74,13 +68,7 @@
 (scroll-bar-mode 0)
 (save-place-mode 1)
 
-(setf tramp-default-method "ssh")
-
-(define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
-
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-
-(use-package applescript-mode)
 
 (provide 'misc-settings)
