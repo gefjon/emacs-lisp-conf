@@ -59,25 +59,4 @@ Go to indentation otherwise"
 
 (global-set-key (kbd "C-c s") 'hydra-swedish-vowels/body)
 
-(use-package origami
-  :config
-  (add-hook-to-prog-modes #'origami-mode)
-  (defhydra hydra-origami (:exit nil :foreign-keys run)
-    "origami --- code folding"
-    ("t" origami-toggle-node "toggle")
-    ("r" origami-recursively-toggle-node "toggle recursive")
-    ("o" origami-open-all-nodes "open all")
-    ("c" origami-close-all-nodes "close all")
-    ("f" origami-show-only-node "focus on point")
-    ("u" origami-undo "undo fold")
-    ("z" origami-redo "redo fold")
-    ("n" origami-forward-fold "next fold")
-    ("p" origami-backward-fold "previous fold")
-    ("N" origami-forward-fold-same-level "next sibling fold")
-    ("P" origami-backward-fold-same-level "previous sibling fold")
-    ("g" nil "exit" :exit t)
-    ("q" nil "exit" :exit t))
-  :bind (:map prog-mode-map
-              ("C-c o" . hydra-origami/body)))
-
 (provide 'keybinding-settings)

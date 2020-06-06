@@ -6,7 +6,6 @@
 
 (use-package magit
   :demand
-  :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch-popup)))
+  :bind (("C-x g" . magit-status)))
 
 (provide 'git-settings)
