@@ -32,7 +32,12 @@
          ("C-?" . undo-tree-redo)
          ("C-x u" . undo-tree-visualize)))
 
-(add-hook 'focus-out-hook #'garbage-collect)
+(defun gc-if-unfocused ()
+  (unless (cl-find t (mapcar #'frame-focus-state (frame-list)))
+    (garbage-collect)))
+(if (not (string-version-lessp emacs-version "27.1"))
+    (add-function :after after-focus-change-function #'gc-if-unfocused)
+  (add-hook 'focus-out-hook #'gc-if-unfocused))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-hook-to-all-modes #'delete-selection-mode)
