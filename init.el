@@ -3,8 +3,7 @@
 (eval-and-compile
   (require 'package)
   (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
-                           ;; ("marmalade" . "https://marmalade-repo.org/packages/")
-			   ("melpa" . "https://melpa.org/packages/")))
+                           ("melpa" . "https://melpa.org/packages/")))
   
   (package-refresh-contents)
 
@@ -24,7 +23,7 @@
 (byte-recompile-directory (expand-file-name "~/emacs-lisp-conf") 0)
 
 (setf user-full-name "Phoebe Goldman"
-      user-mail-address "a@goldman-tribe.org")
+      user-mail-address "pgoldman@sift.net")
 
 (use-package auto-package-update
   :config
@@ -32,23 +31,15 @@
         auto-package-update-interval 4)
   (auto-package-update-maybe))
 
-(require 'utility-fns)
+(use-package cl-lib)
 
 (when (eq system-type 'darwin)
   (require 'mac-system-settings))
 (require 'window-settings)
-(require 'git-settings)
-(require 'project-settings)
-(require 'python-settings)
 (require 'lisp-config)
 (require 'misc-settings)
-(require 'smartparens-settings)
-(require 'js-settings)
 (require 'markup-settings)
-(require 'org-settings)
 (require 'tex-settings)
 (require 'keybinding-settings)
-(require 'ag-settings)
-(require 'completion-settings)
 
 (provide 'init)
