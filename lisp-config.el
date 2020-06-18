@@ -1,11 +1,10 @@
 ;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
-(eval-and-compile (require 'utility-fns))
-
-(message-load-file)
+(use-package sly-asdf
+  :after sly)
 
 (use-package sly
-  :init
+  :config
   (setf sly-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-slynk"))
           (sbcl ("sbcl"))
@@ -17,6 +16,11 @@
   (cl-flet ((start-sly ()
                        (unless (sly-connected-p)
                          (save-excursion (sly)))))
-    (add-hook 'lisp-mode-hook #'start-sly)))
+    (add-hook 'lisp-mode-hook #'start-sly))
+  :bind (:map sly-mode-map ))
+
+
+
+
 
 (provide 'lisp-config)
