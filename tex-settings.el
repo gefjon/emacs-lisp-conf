@@ -1,9 +1,5 @@
 ;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
-(eval-and-compile (require 'utility-fns))
-
-(message-load-file)
-
 ;;; LaTeX with AUCTeX
 (use-package tex-site                   ; AUCTeX initialization
   :ensure auctex)
@@ -11,11 +7,11 @@
 (use-package tex                        ; TeX editing/processing
   :ensure auctex
   :config
-  (setq TeX-parse-self t                ; Parse documents to provide completion
+  (setf TeX-parse-self t                ; Parse documents to provide completion
                                         ; for packages, etc.
         TeX-auto-save t                 ; Automatically save style information
         TeX-electric-sub-and-superscript t ; Automatically insert braces after
-                                        ; sub- and superscripts in math mode
+                                           ; sub- and superscripts in math mode
         TeX-electric-math '("\\(" "\\)")
         ;; Don't insert magic quotes right away.
         TeX-quote-after-quote t
@@ -23,12 +19,8 @@
         TeX-clean-confirm nil
         ;; Provide forward and inverse search with SyncTeX
         TeX-source-correlate-mode t
-        TeX-source-correlate-method 'synctex)
-  (setq-default TeX-master nil          ; Ask for the master file
-                TeX-engine 'xetex      ; Use a modern engine
-                ;; Redundant in 11.88, but keep for older AUCTeX
-                TeX-PDF-mode t)
-
+        TeX-source-correlate-method 'synctex
+        TeX-engine 'xelatex)
   ;; Move to chktex
   (setcar (cdr (assoc "Check" TeX-command-list)) "chktex -v6 %s"))
 
