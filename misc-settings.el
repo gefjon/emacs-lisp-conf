@@ -81,7 +81,7 @@
   :mode "\\.yml\\'")
 
 (use-package pdf-tools
-  :config (pdf-tools-install))
+  :config (pdf-tools-install t))
 
 ;;; if multiple buffers have the same filename, add more of the full
 ;;; path to the beginning of the buffer name to disambiguate
