@@ -158,8 +158,11 @@ Go to indentation otherwise"
 ;;; C-{ sp-backward-barf-sexp
 ;;; C-c [ smartparens-strict-mode
 (use-package smartparens
+  :init (add-to-list 'sp-lisp-modes 'sly-mrepl-mode)
   :config
-  (smartparens-global-mode 1)  
+  (require 'smartparens-config)
+  (smartparens-global-mode 1)
+  :hook (prog-mode . smartparens-strict-mode)
   :bind (("C-)" . sp-forward-slurp-sexp)
          ("C-}" . sp-forward-barf-sexp)
          ("C-(" . sp-backward-slurp-sexp)
