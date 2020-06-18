@@ -17,7 +17,10 @@
                        (unless (sly-connected-p)
                          (save-excursion (sly)))))
     (add-hook 'lisp-mode-hook #'start-sly))
-  :bind (:map sly-mode-map
-         ("C-c C-d d" . sly-documentation)))
+  :bind (:map sly-mode-map ))
+
+
+
+
 
 (provide 'lisp-config)
