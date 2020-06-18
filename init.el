@@ -23,7 +23,7 @@
 (byte-recompile-directory (expand-file-name "~/emacs-lisp-conf") 0)
 
 (setf user-full-name "Phoebe Goldman"
-      user-mail-address "phoebe@goldman-tribe.org")
+      user-mail-address "pgoldman@sift.net")
 
 (use-package auto-package-update
   :config
