@@ -19,8 +19,4 @@
     (add-hook 'lisp-mode-hook #'start-sly))
   :bind (:map sly-mode-map ))
 
-
-
-
-
 (provide 'lisp-config)
