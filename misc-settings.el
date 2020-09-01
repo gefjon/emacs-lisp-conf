@@ -34,17 +34,17 @@
   :config
   (setf save-place-file (concat user-emacs-directory "places"))
   (save-place-mode 1)
-  :defer nil)
+  :demand t)
 
 (use-package rx
   :ensure nil
-  :defer nil)
+  :demand t)
 
 (use-package re-builder
   :ensure nil
   :after rx
   :config (setf reb-re-syntax 'rx)
-  :defer nil)
+  :demand t)
 
 ;;; garbage collect on focus-out
 (defun gc-if-unfocused ()
@@ -71,12 +71,12 @@
 
 (use-package tramp
   :config (setf tramp-default-method "ssh")
-  :defer nil)
+  :demand t)
 (use-package flycheck
-    :defer nil)
+    :demand t)
 (use-package flyspell
   :ensure nil
-  :defer nil)
+  :demand t)
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
@@ -85,7 +85,7 @@
 (use-package uniquify
   :ensure nil
   :config (setf uniquify-buffer-name-style 'forward)
-  :defer nil)
+  :demand t)
 
 ;;; display line numbers using the sexy high-performance c library
 (use-package display-line-numbers
@@ -96,20 +96,20 @@
         display-line-numbers-width-start 4
         display-line-numbers-width 4)
   (global-display-line-numbers-mode)
-  :defer nil)
+  :demand t)
 
 ;;; ag search
 (use-package ag
-  :defer nil)
+  :demand t)
 
 ;;; project(ile)
 (use-package projectile
   :config (projectile-mode)
-  :defer nil)
+  :demand t)
 (use-package counsel-projectile
   :after (counsel projectile)
   :config (counsel-projectile-mode)
-  :defer nil)
+  :demand t)
 
 ;;; (ma)git
 (use-package magit
@@ -120,6 +120,19 @@
 ;;; rainbow-delims
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  :defer nil)
+  :demand t)
+
+(use-package pdf-tools
+  :config
+  (pdf-tools-install nil)
+  :demand t)
+
+(use-package gnuplot
+  :demand t
+  :mode ("\\.gp\\'" . gnuplot-mode))
+
+(use-package llvm-mode
+  :load-path "/usr/local/src/llvm/utils/emacs"
+  :mode "\\.llvm\\'")
 
 (provide 'misc-settings)
