@@ -11,8 +11,7 @@
 
 (use-package wgrep
   :demand t
-  :config (setf wgrep-auto-save-buffer t)
-  )
+  :config (setf wgrep-auto-save-buffer t))
 
 ;;;; replace builtins with ivy equivalents
 ;; also, rebind find-file to C-c C-f just in case
@@ -172,40 +171,5 @@ Go to indentation otherwise"
          ("C-(" . sp-backward-slurp-sexp)
          ("C-{" . sp-backward-barf-sexp)
          ("C-c [" . smartparens-strict-mode)))
-
-;;;; multiple-cursors
-(use-package hydra
-  :demand t)
-(use-package mulitple-cursors
-  :demand t
-  :config
-  (defhydra hydra-multiple-cursors ()
-    "multiple-cursors"
-    ;; mark all
-    ("d" mc/mark-all-dwim "dwim" :exit nil :column "Mark all")
-    ("l" mc/edit-lines "each line of region" :exit t :column "Mark all")
-    ("a" mc/edit-beginnings-of-lines "beginning of each line of region" :exit t :column "Mark all")
-    ("e" mc/edit-ends-of-lines "end of each line of region" :exit t :column "Mark all")
-    ("\\" mc/mark-all-like-this "all of buffer matching region" :exit t :column "Mark all")
-    ("|" mc/mark-all-like-this-word "all of buffer matching word at point" :exit t :column "Mark all")
-    ("M-\\" mc/mark-all-like-this-symbol "all of buffer matching symbol at point" :exit t :column "Mark all")
-    ;; mark next
-    ("n" mc/mark-next-like-this "next matching region" :exit nil :column "Mark next")
-    ("N" mc/mark-next-like-this-word "next matching word at point" :exit nil :column "Mark next")
-    ("M-n" mc/mark-next-like-this-symbol "next matching symbol at point" :exit nil :column "Mark next")
-    ;; mark previous
-    ("p" mc/mark-previous-like-this "previous matching region" :exit nil :column "Mark previous")
-    ("P" mc/mark-next-like-this-word "previous matching word at point" :exit nil :column "Mark previous")
-    ("M-p" mc/mark-previous-like-this-symbol "previous matching symbol at point" :exit nil :column "Mark previous")
-    ;; insert ordinals
-    ("C-i n" mc/insert-numbers "insert sequential numbers" :exit nil :column "Insert ordinals")
-    ("C-i l" mc/insert-letters "insert sequential letters" :exit nil :column "Insert ordinals")
-    ;; reorder
-    ("C-r s" mc/sort-regions "sort marked regions" :exit nil :column "Reorder")
-    ("C-r r" mc/reverse-regions "reverse marked regions" :exit nil :column "Reorder")
-    ;; quit
-    ("C-g" nil "quit" :exit t :column "Quit")
-    ("q" nil "quit" :exit t :column "Quit"))
-  :bind ("C-c C-M-m" . hydra-multiple-cursors/body))
 
 (provide 'keybinding-settings)
