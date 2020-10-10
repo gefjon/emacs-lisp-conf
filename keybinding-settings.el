@@ -138,17 +138,22 @@ Go to indentation otherwise"
                        (?\[ . ?\])
                        (?< . ?>)))
 (defun pair-of-delimiters-p (first second)
+  "Returns T if FIRST is an opening delimiter and SECOND is its corresponding close delimeter."
   (eq (cdr (assq first *delimiters*)) second))
 (defun point-between-delimiters-p ()
+  "Returns T if the characters preceding and following point are matching delimiters, or nil otherwise."
   (pair-of-delimiters-p (char-before) (char-after)))
-
+(defun newline-at-block ()
+  "Open a c-style block at point, leaving point on an empty indented line."
+  (newline-and-indent)
+  (open-line 1))
 (defun newline-with-block-support ()
+  "If the characters preceding and following point are matching delimiters, insert and indent a blank line between them. Otherwise, `newline-and-indent' as normal."
   (interactive)
   (if (point-between-delimiters-p)
       (newline-at-block)
     (newline-and-indent)))
-(global-set-key (kbd "C-m") #'newline ;; -with-block-support
-                )
+(global-set-key (kbd "C-m") #'newline-with-block-support)
 
 ;;;; smartparens
 ;; C-[( | )] to slurp
