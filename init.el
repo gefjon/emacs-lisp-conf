@@ -41,5 +41,6 @@
 (require 'markup-settings)
 (require 'tex-settings)
 (require 'keybinding-settings)
+(require 'erc-settings)
 
 (provide 'init)

@@ -135,4 +135,8 @@
   :load-path "/usr/local/src/llvm/utils/emacs"
   :mode "\\.llvm\\'")
 
+(use-package unicode-fonts
+  :demand t
+  :config (unicode-fonts-setup))
+
 (provide 'misc-settings)
