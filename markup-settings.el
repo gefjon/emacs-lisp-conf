@@ -1,8 +1,12 @@
 ;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
+(use-package pandoc-mode
+  :demand t)
+
 (defun markup-editing-settings ()
-  (turn-on-auto-fill)
   (set-fill-column 90)
+  (pandoc-mode 1)
+  (pandoc-load-default-settings)
   (flyspell-mode))
 
 (use-package fountain-mode
@@ -19,7 +23,8 @@
         org-log-done 'time
         org-agenda-files (list (expand-file-name "~/sift"))
         org-agenda-start-day "-1d"
-        org-agenda-span 16)
+        org-agenda-span 16
+        org-image-actual-width nil)
   (org-babel-do-load-languages 'org-babel-load-languages
                                '((emacs-lisp . t)
                                  (lisp . t)))
