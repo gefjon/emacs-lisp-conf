@@ -26,7 +26,8 @@
  require-final-newline t
   load-prefer-newer t
  tab-stop-list (number-sequence 2 120 2)
- compilation-scroll-output 'first-error)
+ compilation-scroll-output 'first-error
+ shell-command-dont-erase-buffer t)
 
 ;;; reopen files with point in the place it was when closed
 (use-package saveplace
