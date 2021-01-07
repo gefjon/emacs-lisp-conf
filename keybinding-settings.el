@@ -14,7 +14,6 @@
   :config (setf wgrep-auto-save-buffer t))
 
 ;;;; replace builtins with ivy equivalents
-;; also, rebind find-file to C-c C-f just in case
 ;;; C-s swiper
 ;;; M-x counsel-M-x
 ;;; C-x C-f counsel-find-file
@@ -30,7 +29,6 @@
   (setf ivy-use-virtual-buffers t)
   :bind (("C-s" . swiper)
          ("M-x" . counsel-M-x)
-         ("C-c C-f" . find-file)
          ("C-x C-f" . counsel-find-file)
          ("C-h f" . counsel-describe-function)
          ("C-h v" . counsel-describe-variable)
