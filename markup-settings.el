@@ -38,8 +38,8 @@
   (setf org-roam-directory org-notes-dir)
   (org-roam-mode)
   :bind (("C-c f" . org-roam-find-file)
-         ("C-c r" . org-roam)
          :map org-mode-map
+         ("C-c r" . org-roam)
          ("C-c i" . org-roam-insert)))
 
 (provide 'markup-settings)
