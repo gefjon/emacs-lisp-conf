@@ -123,11 +123,6 @@
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   :demand t)
 
-(use-package pdf-tools
-  :config
-  (pdf-tools-install nil)
-  :demand t)
-
 (use-package gnuplot
   :demand t
   :mode ("\\.gp\\'" . gnuplot-mode))
