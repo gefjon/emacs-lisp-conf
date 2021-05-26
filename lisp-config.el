@@ -14,8 +14,11 @@
   (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
   (cl-flet ((start-sly ()
                        (unless (sly-connected-p)
-                         (save-excursion (sly)))))
-    (add-hook 'lisp-mode-hook #'start-sly))
+                         (save-excursion (sly))))
+            (fill-110 ()
+                      (set-fill-column 110)))
+    (add-hook 'lisp-mode-hook #'start-sly)
+    (add-hook 'lisp-mode-hook #'fill-110))
   :bind (:map sly-mode-map ))
 
 (provide 'lisp-config)

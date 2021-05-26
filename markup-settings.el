@@ -6,8 +6,7 @@
 (defun markup-editing-settings ()
   (set-fill-column 90)
   (pandoc-mode 1)
-  (pandoc-load-default-settings)
-  (flyspell-mode))
+  (pandoc-load-default-settings))
 
 (use-package fountain-mode
   :mode "\\.fountain\\'"
