@@ -10,7 +10,7 @@
 (setf
  ;; put stuff in .emacs.d
  backup-directory-alist (list (cons "." (concat user-emacs-directory
-                                                     "backups")))
+                                                "backups")))
 
  ;; flash for bell instead of making a noise
  visible-bell t
@@ -19,7 +19,7 @@
  ;; start in *scratch* instead of the logo
  inhibit-startup-screen t
  
-  ;; read-quoted-char in hex
+ ;; read-quoted-char in hex
  read-quoted-char-radix 16
 
  ;; things which require no explanation
@@ -28,6 +28,10 @@
  tab-stop-list (number-sequence 2 120 2)
  compilation-scroll-output 'first-error
  shell-command-dont-erase-buffer t)
+
+(when (version<= "27.1" emacs-version)
+  ;; suppress the "Auto-saving...done" message which clogs the minibuffer
+  (setf auto-save-no-message t))
 
 ;;; reopen files with point in the place it was when closed
 (use-package saveplace
