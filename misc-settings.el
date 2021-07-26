@@ -41,6 +41,7 @@
   (save-place-mode 1)
   :demand t)
 
+;;; lisp-y regexps
 (use-package rx
   :ensure nil
   :demand t)
@@ -50,6 +51,15 @@
   :after rx
   :config (setf reb-re-syntax 'rx)
   :demand t)
+
+(rx-define filename (type)
+  (seq (one-or-more anychar)
+       ?\.
+       type))
+
+(defvar ignore-find-file-regexp
+  (rx (or (filename "fasl")))
+  "this will be passed to counsel later (in keybindings.el, since that's where counsel is loaded)")
 
 ;;; garbage collect on focus-out
 (defun gc-if-unfocused ()

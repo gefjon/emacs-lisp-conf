@@ -26,7 +26,8 @@
   :demand t
   :config
   (ivy-mode 1)
-  (setf ivy-use-virtual-buffers t)
+  (setf ivy-use-virtual-buffers t
+        counsel-find-file-ignore-regexp ignore-find-file-regexp)
   :bind (("C-s" . swiper)
          ("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
