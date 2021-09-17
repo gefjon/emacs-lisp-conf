@@ -29,6 +29,10 @@
  compilation-scroll-output 'first-error
  shell-command-dont-erase-buffer t)
 
+(setq-default
+ ;; 90-char lines
+ fill-column 90)
+
 ;;; reopen files with point in the place it was when closed
 (use-package saveplace
   :ensure nil
