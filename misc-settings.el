@@ -139,4 +139,13 @@
   :demand t
   :config (unicode-fonts-setup))
 
+;;; auto-save stuff
+;; keep auto-save files in a subdir of .emacs.d, instead of next to their source files
+
+(defvar auto-save-files-dir
+  (expand-file-name (concat user-emacs-directory "auto-saves/"))
+  "Parent directory in which to store auto-save files")
+
+(setf auto-save-file-name-transforms `((".*" ,auto-save-files-dir t)))
+
 (provide 'misc-settings)
