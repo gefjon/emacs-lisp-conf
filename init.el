@@ -42,5 +42,6 @@
 (require 'tex-settings)
 (require 'keybinding-settings)
 (require 'erc-settings)
+(require 'python-settings)
 
 (provide 'init)
