@@ -89,13 +89,25 @@ Go to indentation otherwise"
   :demand t)
 (defhydra hydra-swedish-vowels (:color blue)
   "Swedish vowels"
-  ("e" (lambda () (interactive) (insert ?ä)) "ä")
-  ("E" (lambda () (interactive) (insert ?Ä)) "Ä")
-  ("o" (lambda () (interactive) (insert ?ö)) "ö")
-  ("O" (lambda () (interactive) (insert ?Ö)) "Ö")
-  ("a" (lambda () (interactive) (insert ?å)) "å")
-  ("A" (lambda () (interactive) (insert ?Å)) "Å"))
+  ("e" (insert ?ä) "ä")
+  ("E" (insert ?Ä) "Ä")
+  ("o" (insert ?ö) "ö")
+  ("O" (insert ?Ö) "Ö")
+  ("a" (insert ?å) "å")
+  ("A" (insert ?Å) "Å"))
 (global-set-key (kbd "C-c s") 'hydra-swedish-vowels/body)
+
+;;; C-c g [s -> ß | a -> ä | A -> Ä | o -> ö | O -> Ö | u -> ü | U -> Ü]
+(defhydra hydra-german-letters (:color blue)
+  "German letters"
+  ("s" (insert ?ß) "ß")
+  ("a" (insert ?ä) "ä")
+  ("A" (insert ?Ä) "Ä")
+  ("o" (insert ?ö) "ö")
+  ("O" (insert ?Ö) "Ö")
+  ("u" (insert ?ü) "ü")
+  ("U" (insert ?Ü) "Ü"))
+(global-set-key (kbd "C-c g") 'hydra-german-letters/body)
 
 ;;; C-c e eval-print-last-sexp
 (define-key lisp-interaction-mode-map (kbd "C-c e") #'eval-print-last-sexp)
