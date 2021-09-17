@@ -19,12 +19,12 @@
  ;; start in *scratch* instead of the logo
  inhibit-startup-screen t
  
-  ;; read-quoted-char in hex
+ ;; read-quoted-char in hex
  read-quoted-char-radix 16
 
  ;; things which require no explanation
  require-final-newline t
-  load-prefer-newer t
+ load-prefer-newer t
  tab-stop-list (number-sequence 2 120 2)
  compilation-scroll-output 'first-error
  shell-command-dont-erase-buffer t)
