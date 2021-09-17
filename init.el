@@ -43,5 +43,6 @@
 (require 'keybinding-settings)
 (require 'erc-settings)
 (require 'python-settings)
+(require 'c-settings)
 
 (provide 'init)
