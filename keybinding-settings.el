@@ -187,4 +187,10 @@ Go to indentation otherwise"
          ("C-{" . sp-backward-barf-sexp)
          ("C-c [" . smartparens-strict-mode)))
 
+;;;; compilation
+;;; C-c c compile
+;;; c-c r recompile
+(global-set-key (kbd "C-c c") #'compile)
+(global-set-key (kbd "C-c r") #'recompile)
+
 (provide 'keybinding-settings)
