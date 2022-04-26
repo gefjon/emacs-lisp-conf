@@ -121,14 +121,12 @@ Go to indentation otherwise"
 (define-key key-translation-map (kbd "M-<mouse-1>") (kbd "<mouse-2>"))
 
 ;;; C-c m become-fullscreen
-;; defined in window-settings.el
-(global-set-key (kbd "C-c m") #'become-fullscreen)
-
 (defun become-fullscreen ()
   (interactive)
   (if (eq system-type 'darwin)
       'toggle-frame-fullscreen
     'toggle-frame-maximized))
+(global-set-key (kbd "C-c m") #'become-fullscreen)
 
 ;;; C-m newline-with-block-support
 ;; C-m does a funky newline which puts delimiters where i expect them
