@@ -24,11 +24,6 @@
   ;; Move to chktex
   (setcar (cdr (assoc "Check" TeX-command-list)) "chktex -v6 %s"))
 
-(use-package tex-buf                    ; TeX buffer management
-  :ensure auctex
-  ;; Don't ask for confirmation when saving before processing
-  :config (setq TeX-save-query nil))
-
 (use-package tex-style                  ; TeX style
   :ensure auctex
   :config
