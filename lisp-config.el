@@ -7,7 +7,7 @@
   :config
   (setf sly-lisp-implementations
         '((sbcl-fast ("sbcl" "--core" "/home/phoebe/sbcl.core-with-slynk"))
-          (sbcl ("sbcl"))
+          (sbcl ("sbcl" "--noinform"))
           (allegro ("alisp"))
           (ccl ("ccl"))
           (ccl32 ("ccl32")))
@@ -16,7 +16,6 @@
   (cl-flet ((start-sly ()
                        (unless (sly-connected-p)
                          (save-excursion (sly)))))
-    (add-hook 'lisp-mode-hook #'start-sly))
-  :bind (:map sly-mode-map ))
+    (add-hook 'lisp-mode-hook #'start-sly)))
 
 (provide 'lisp-config)
