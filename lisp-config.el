@@ -11,7 +11,7 @@
           (sbcl ("sbcl"))
           (allegro ("alisp"))
           (ccl ("ccl")))
-        sly-default-lisp 'sbcl-arm64)
+        sly-default-lisp 'sbcl)
   (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
   (cl-flet ((start-sly ()
                        (unless (sly-connected-p)
