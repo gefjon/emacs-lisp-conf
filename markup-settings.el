@@ -19,6 +19,7 @@
 (defvar org-notes-dir (expand-file-name "~/notes"))
 
 (use-package org
+  :demand t
   :config
   (setf org-src-fontify-natively t
         org-log-done 'time
@@ -33,21 +34,22 @@
          ("C-c l" . org-store-link))
   :hook (org-mode . markup-editing-settings))
 
+(use-package hydra)
+(defhydra hydra-org-dispatch (;; i.e :foreign-keys warn :exit t
+                              :color teal)
+  "Catch-all dispatch for org-mode related stuff."
+  ("f" org-footnote-new "create a footnote (C-c C-c once done to return)"))
+
 (use-package org-roam
+  :init (setf org-roam-v2-ack t)
   :config
-  (setf org-roam-directory org-notes-dir
-        org-roam-v2-ack t)
+  (setf org-roam-directory org-notes-dir)
   (org-roam-setup)
   :bind (("C-c f" . org-roam-node-find)
          :map org-mode-map
          ("C-c r" . org-roam)
-         ("C-c i" . org-roam-insert)))
+         ("C-c i" . org-roam-insert)
+         ("C-c o" . hydra-org-dispatch/body)))
 
-(use-package hydra)
-(defhydra hydra-org-dispatch (org-mode-map "C-c o"
-                                           ;; i.e :foreign-keys warn :exit t
-                                           :color teal)
-  "Catch-all dispatch for org-mode related stuff."
-  ("f" org-footnote-new))
 
 (provide 'markup-settings)

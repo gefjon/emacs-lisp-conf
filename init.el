@@ -20,8 +20,6 @@
 
 (add-to-list 'load-path (expand-file-name "~/emacs-lisp-conf"))
 
-(byte-recompile-directory (expand-file-name "~/emacs-lisp-conf") 0)
-
 (setf user-full-name "Phoebe Goldman"
       user-mail-address "phoebe@goldman-tribe.org")
 
@@ -44,5 +42,6 @@
 (require 'erc-settings)
 (require 'python-settings)
 (require 'c-settings)
+(require 'rust-settings)
 
 (provide 'init)

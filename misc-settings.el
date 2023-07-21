@@ -27,8 +27,8 @@
  load-prefer-newer t
  tab-stop-list (number-sequence 2 120 2)
  compilation-scroll-output 'first-error
- shell-command-dont-erase-buffer t)
-
+ shell-command-dont-erase-buffer t
+ shell-command-prompt-show-cwd t)
 (setq-default
  ;; 90-char lines
  fill-column 90)
@@ -147,5 +147,20 @@
   "Parent directory in which to store auto-save files")
 
 (setf auto-save-file-name-transforms `((".*" ,auto-save-files-dir t)))
+
+;;; dired
+;; command to use system `open'
+(defun open-file (absolute-path)
+  (shell-command (format "open \"%s\"" absolute-path)))
+
+(defun dired-open-file-dwim ()
+  (interactive)
+  (dolist (file (dired-get-marked-files))
+    (open-file file)))
+
+(define-key dired-mode-map (kbd "M-o") #'dired-open-file-dwim)
+
+(push (expand-file-name "~/clockworklabs/SpacetimeDB/target/debug/")
+      exec-path)
 
 (provide 'misc-settings)

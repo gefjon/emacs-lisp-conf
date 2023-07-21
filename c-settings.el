@@ -7,3 +7,4 @@
                  (c-basic-offset . 2)))
   (setf c-default-style "otbs-2-spaces"
         c-basic-offset 2))
+(provide 'c-settings)
