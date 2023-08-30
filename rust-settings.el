@@ -8,7 +8,7 @@
 
 (use-package rustic
   :demand t
-  :mode "\\.rs\\'"
+  :mode ("\\.rs\\'" . rustic-mode)
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
               ("M-?" . lsp-find-references)

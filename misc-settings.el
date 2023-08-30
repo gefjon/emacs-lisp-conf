@@ -158,9 +158,18 @@
   (dolist (file (dired-get-marked-files))
     (open-file file)))
 
+(use-package nix-mode
+  :ensure t
+  :demand t)
+
 (define-key dired-mode-map (kbd "M-o") #'dired-open-file-dwim)
 
 (push (expand-file-name "~/clockworklabs/SpacetimeDB/target/debug/")
       exec-path)
+
+(use-package direnv
+  :ensure t
+  :demand t
+  :config (direnv-mode))
 
 (provide 'misc-settings)
