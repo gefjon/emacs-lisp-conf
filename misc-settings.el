@@ -122,6 +122,9 @@
   :bind (("C-x g" . magit-status)
          ("C-x M-g" . magit-dispatch)))
 
+(use-package magit-lfs
+  :after magit)
+
 ;;; rainbow-delims
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
