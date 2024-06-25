@@ -175,6 +175,7 @@
   :demand t
   :config (direnv-mode))
 
-(setf js-indent-level 2)
+(setf js-indent-level 2
+      typescript-indent-level 2)
 
 (provide 'misc-settings)
