@@ -12,9 +12,10 @@
   :mode "\\.fountain\\'"
   :hook (fountain-mode . markup-editing-settings))
 
-(use-package markdown-mode
-  :mode "\\.md\\'"
-  :hook (markdown-mode . markup-editing-settings))
+(use-package poly-markdown
+  :ensure t
+  :mode ("\\.md\\'" . poly-markdown-mode)
+  :hook (poly-markdown-mode . markup-editing-settings))
 
 (defvar org-notes-dir (expand-file-name "~/notes"))
 
