@@ -3,9 +3,8 @@
 (use-package slime
   :config
   (setf slime-lisp-implementations
-        '((clnix ("clnix-swank-server"))
-          (sbcl ("sbcl")))
-        sly-default-lisp 'clnix)
+        '((sbcl ("sbcl")))
+        sly-default-lisp 'sbcl)
   (add-hook 'slime-repl-mode-hook #'smartparens-mode)
   (cl-flet ((start-slime ()
               (unless (slime-connected-p)
@@ -16,9 +15,9 @@
     (add-hook 'lisp-mode-hook #'fill-110)))
 
 (use-package slime-company
-  :after (slime company))
-
-(slime-company-init)
-(slime-setup '(slime-fancy slime-company))
+  :after (slime company)
+  :config
+  (slime-company-init)
+  (slime-setup '(slime-fancy slime-company)))
 
 (provide 'lisp-config)
