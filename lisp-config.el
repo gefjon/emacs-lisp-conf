@@ -3,8 +3,9 @@
 (use-package slime
   :config
   (setf slime-lisp-implementations
-        '((sbcl ("sbcl")))
-        sly-default-lisp 'sbcl)
+        '((clnix ("clnix-swank-server"))
+          (sbcl ("sbcl")))
+        sly-default-lisp 'clnix)
   (add-hook 'slime-repl-mode-hook #'smartparens-mode)
   (cl-flet ((start-slime ()
               (unless (slime-connected-p)
