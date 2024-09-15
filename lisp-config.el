@@ -1,25 +1,17 @@
 ;;; -*- lexical-binding: t; use-package-always-ensure: t; -*-
 
-(use-package sly-asdf
-  :after sly)
-
-(use-package sly
+(use-package slime
   :config
-  (setf sly-lisp-implementations
-        '((sbcl-fast ("sbcl" "--core" "/Users/phoebe/sbcl.core-with-slynk"))
-          (sbcl-arm64 ("arch" "-arm64" "sbcl"))
-          (sbcl ("sbcl"))
-          (allegro ("alisp"))
-          (ccl ("ccl")))
+  (setf slime-lisp-implementations
+        '((sbcl ("sbcl")))
         sly-default-lisp 'sbcl)
-  (add-hook 'sly-mrepl-mode-hook #'smartparens-mode)
-  (cl-flet ((start-sly ()
-                       (unless (sly-connected-p)
-                         (save-excursion (sly))))
+  (add-hook 'slime-repl-mode-hook #'smartparens-mode)
+  (cl-flet ((start-slime ()
+              (unless (slime-connected-p)
+                (save-excursion (slime))))
             (fill-110 ()
-                      (set-fill-column 110)))
-    (add-hook 'lisp-mode-hook #'start-sly)
-    (add-hook 'lisp-mode-hook #'fill-110))
-  :bind (:map sly-mode-map ))
+              (set-fill-column 110)))
+    (add-hook 'lisp-mode-hook #'start-slime)
+    (add-hook 'lisp-mode-hook #'fill-110)))
 
 (provide 'lisp-config)
