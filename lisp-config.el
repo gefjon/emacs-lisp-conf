@@ -14,4 +14,9 @@
     (add-hook 'lisp-mode-hook #'start-slime)
     (add-hook 'lisp-mode-hook #'fill-110)))
 
+(use-package slime-company
+  :after (slime company))
+
+(slime-setup '(slime-fancy slime-company))
+
 (provide 'lisp-config)
