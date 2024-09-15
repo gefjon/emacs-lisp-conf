@@ -17,6 +17,7 @@
 (use-package slime-company
   :after (slime company))
 
+(slime-company-init)
 (slime-setup '(slime-fancy slime-company))
 
 (provide 'lisp-config)
