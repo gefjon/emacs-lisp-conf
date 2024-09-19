@@ -153,8 +153,13 @@
 
 ;;; dired
 ;; command to use system `open'
+(defvar open-shell-command
+  (cl-case system-type
+    ('darwin "open")
+    ('gnu/linux "xdg-open")))
+
 (defun open-file (absolute-path)
-  (shell-command (format "open \"%s\"" absolute-path)))
+  (shell-command (format "%s \"%s\"" open-shell-command absolute-path)))
 
 (defun dired-open-file-dwim ()
   (interactive)
@@ -177,5 +182,10 @@
 
 (setf js-indent-level 2
       typescript-indent-level 2)
+
+;; I was having problems where `rustic' would hang or otherwise break
+;; with the low default value of `max-lisp-eval-depth'.
+;; This seems to go away when I set `max-lisp-eval-depth' to be suitably large.
+(setf max-lisp-eval-depth 10000)
 
 (provide 'misc-settings)
