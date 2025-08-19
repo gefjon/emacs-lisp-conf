@@ -155,8 +155,8 @@
 ;; command to use system `open'
 (defvar open-shell-command
   (cl-case system-type
-    ('darwin "open")
-    ('gnu/linux "xdg-open")))
+    (darwin "open")
+    (gnu/linux "xdg-open")))
 
 (defun open-file (absolute-path)
   (shell-command (format "%s \"%s\"" open-shell-command absolute-path)))
