@@ -76,6 +76,10 @@
 
 (use-package tramp
   :config (setf tramp-default-method "ssh")
+  ;; Make tramp respect remote machines' PATH variables,
+  ;; which it doesn't do by default for some stupid reason.
+  ;; Without this, tramp connections to remote NixOS machines will not be able to find any executables.
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   :demand t)
 (use-package flycheck
     :demand t)
