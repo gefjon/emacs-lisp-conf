@@ -175,10 +175,17 @@
 (push (expand-file-name "~/clockworklabs/SpacetimeDB/target/debug/")
       exec-path)
 
-(use-package direnv
+(use-package envrc
   :ensure t
   :demand t
-  :config (direnv-mode))
+  ;; From the envrc README, https://github.com/purcell/envrc:
+  ;; > Why must you enable the global mode late in your startup sequence like this?
+  ;; > You normally want envrc-mode to be initialized in each buffer before other minor modes
+  ;; > like flycheck-mode which might look for executables.
+  ;; > Counter-intuitively, this means that envrc-global-mode should be enabled after other global minor modes,
+  ;; > since each prepends itself to various hooks.
+  :hook (after-init . envrc-global-mode)
+  :bind (("C-c e" . envrc-command-map)))
 
 (setf js-indent-level 2
       typescript-indent-level 2)
