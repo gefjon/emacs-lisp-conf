@@ -19,7 +19,8 @@
               ("C-c C-c Q" . lsp-workspace-shutdown)
               ("C-c C-c s" . lsp-rust-analyzer-status))
   :config
-  (setf rustic-format-on-save t))
+  (setf rustic-format-on-save t
+        rustic-rustfmt-config-alist '((edition . "2024"))))
 
 (use-package cargo
   :demand t

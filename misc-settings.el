@@ -189,7 +189,13 @@
   ;; > Counter-intuitively, this means that envrc-global-mode should be enabled after other global minor modes,
   ;; > since each prepends itself to various hooks.
   :hook (after-init . envrc-global-mode)
-  :bind (("C-c e" . envrc-command-map)))
+  :bind (("C-c e" . envrc-command-map))
+  :config (setf envrc-async 2.0))
+
+(use-package jq-mode
+  :ensure t
+  :demand t
+  :mode "\\.jq\\'")
 
 (setf js-indent-level 2
       typescript-indent-level 2)
